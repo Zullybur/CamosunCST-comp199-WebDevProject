@@ -1,0 +1,27 @@
+.subtitle {
+	text-align: Left;
+	font-weight: Italic;
+}
+
+.abouttext {
+	text-align: Center;
+}
+
+.prodname {
+	font-weight: Italic;
+	text-align: Left;
+}
+
+p { 
+	font-style: Italic
+}
+
+footer {
+	background-color: light-grey;
+}
+
+.footertext {
+	text-align: Left;
+	color: Blue;
+	font-weight: Italic;
+}
