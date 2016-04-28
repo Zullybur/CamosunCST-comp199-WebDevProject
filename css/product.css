@@ -1,6 +1,6 @@
 .subtitle {
 	text-align: Left;
-	font-weight: Italic;
+	font-style: Italic;
 }
 
 .abouttext {
@@ -8,7 +8,7 @@
 }
 
 .prodname {
-	font-weight: Italic;
+	font-style: Italic;
 	text-align: Left;
 }
 
@@ -16,12 +16,8 @@ p {
 	font-style: Italic
 }
 
-footer {
-	background-color: light-grey;
-}
 
-.footertext {
-	text-align: Left;
-	color: Blue;
-	font-weight: Italic;
+.carousel {
+    width: 100%;
+    margin: auto;
 }
