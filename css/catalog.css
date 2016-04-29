@@ -102,3 +102,66 @@ footer {
   float: right;
   margin-right: 30px;
 }
+
+.page-title{
+  width: 100%;
+  margin-top: 450px;
+}
+.page-title h1{
+  font-size: 100px;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0 auto;
+  text-align: center;
+  text-shadow: 0 0 8px #2D2929;
+}
+.filter-title{
+  width: 100%;
+  padding-bottom: 25px;
+}
+.filter-title h3{
+  text-align: center;
+  color: #333;
+}
+.slider{
+  width: 300px;
+}
+.filter-body{
+}
+.filter-body select{
+  display: block;
+  margin: 0 auto;
+}
+label{
+    font-weight: 100;
+    text-transform: uppercase;
+}
+.styled-select select {
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   border-radius: 5px;
+   margin-bottom: 20px;
+   }
+
+.filter-body .dropdown label{
+    display: block;
+    float: left;
+}
+
+#radio, 
+.slider input{
+    display: block;
+    margin-bottom: 15px;
+}
+#radio label{
+	padding-left: 0px;
+}
+.radio-mar {
+	margin-right: 8px; 
+	margin-left: 8px;
+}

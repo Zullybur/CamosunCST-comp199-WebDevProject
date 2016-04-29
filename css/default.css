@@ -6,6 +6,9 @@ html, body {
   height: 100%;
   font-family: Georgia;
 }
+ul{
+  list-style-type: none;
+}
 
 #wrap {
   min-height: 100%;
@@ -43,46 +46,3 @@ html, body {
 .OF-footer a:active {
     color: black;
 }
-.page-title{
-  width: 100%;
-  margin-top: 450px;
-}
-.page-title h1{
-  font-size: 100px;
-  color: #fff;
-  text-transform: uppercase;
-  margin: 0 auto;
-  text-align: center;
-  text-shadow: 0 0 8px #2D2929;
-}
-.filter-title{
-  width: 100%;
-}
-.filter-title h3{
-  text-align: center;
-  color: #333;
-}
-.slider{
-  width: 250px;
-}
-.filter-body{
-}
-.filter-body select{
-  display: block;
-  margin: 0 auto;
-}
-label{
-    font-weight: 100;
-    text-transform: uppercase;
-}
-.styled-select select {
-   background: transparent;
-   width: 268px;
-   padding: 5px;
-   font-size: 16px;
-   line-height: 1;
-   border: 0;
-   border-radius: 0;
-   height: 34px;
-   -webkit-appearance: none;
-   }
