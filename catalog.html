@@ -28,11 +28,72 @@
   </nav>
   <section>
     <div class="container products col-md-12">
-    
+      <div class="page-title">
+          <h1>Yachts</h1>
+          <img src="images/logo.png">
+      </div>
     </div>
   </section>
   <section>
     <div class="container col-md-12" id="filter">
+      <div class="filter-title">
+        <h3>Yacht Search</h3>
+      </div>
+      <div class="filter-body styled-select">
+        <div class="row">
+          <div class="col-md-4">
+            <label>Name:</label>
+            <select>
+              <option>Big mama</option>
+              <option>Biga mama 2</option>
+            </select>
+            <label>Currency:</label>
+            <select>
+              <option>Us</option>
+              <option>Euro</option>
+            </select>
+            <label>Built:</label> 
+            <select>
+              <option>2017</option>
+              <option>2016</option>
+            </select>
+            </div>
+            <div class="col-md-4">
+            <label>Shipyard:</label>
+            <select>
+              <option>Greece</option>
+              <option>Italy</option>
+            </select>
+            <label>Guests:</label>
+            <select>
+              <option>20+</option>
+              <option>50+</option>
+            </select>
+            <label>New/Used:</label>
+            <select>
+              <option>New</option>
+              <option>Old</option>
+            </select>
+            </div>
+            <div class="col-md-4">
+              <div class="yacht-type">
+                <label>Type:</label>
+                <label for="all">All</label>
+                <input type="radio" name="type" value="all" checked> 
+                <label>Motor</label>
+                <input type="radio" name="type" value="motor"> 
+                <label>Sailing</label>
+                <input type="radio" name="type" value="sailing"> 
+              </div>
+              <div class="slider"> 
+                <label>Price:</label>
+                <input type="range"  min="0" max="100" value="0"/>
+                <label>Length</label>
+                <input type="range"  min="0" max="100" value="0"/>
+              </div>
+            </div>
+        </div>
+      </div>
     </div>
   </section>
   <section>
@@ -44,7 +105,8 @@
           <div class="content-thumb">
             <h4>1998 Viking 58 Convertible</h2>
             <h5>Price: 36,006,00</h3>
-            <h6>Length 51m(167.3ft)
+            <h6>Length 51m(167.3ft)</h6>
+            <button class="btn">More</button>
           </div>
         </div>
         <div class="col-md-4 contain">
@@ -54,6 +116,7 @@
               <h4>1983 Feadship C Van Lent</h4>
               <h5>Price: 36,826,284</h5>
               <h6>Length 51m(167.3ft)</h6>
+              <button class="btn">More</button>
             </div>
         </div>
         <div class="col-md-4 contain">
@@ -63,6 +126,7 @@
                 <h4>2011 Proteksan Turquoise</h4>
                 <h5>Price: 36,826,284</h5>
                 <h6>Length 51m(167.3ft)</h6>
+                <button class="btn">More</button>
             </div>
         </div>
       </div>
@@ -74,6 +138,7 @@
                 <h4>1986 Swedeship</h4>
                 <h5>Price: 36,826,284</h5>
                 <h6>Length 51m(167.3ft)</h6>
+                <button class="btn">More</button>
               </div>
           </div>
           <div class="col-md-4 contain">
@@ -83,6 +148,7 @@
                 <h4>2018 McMullen &amp; Wing</h4>
                 <h5>Price: 36,826,284</h5>
                 <h6>Length 51m(167.3ft)</h6>
+                <button class="btn">More</button>
               </div>
           </div>
           <div class="col-md-4 contain">
@@ -92,6 +158,7 @@
                 <h4>2003 Benetti</h4>
                 <h5>Price: 36,826,284</h5>
                 <h6>Length 51m(167.3ft)</h6>
+                <button class="btn">More</button>
               </div>
           </div>
         </div>
@@ -100,25 +167,27 @@
     <footer class="footer">
       <div class="row">
         <div class="col-md-3 col-md-offset-2">
-          <b class="title">SITE MAP</b><br>
-          <br>
-          Home<br>
-          <a href="Catalog.html">Catalog</a><br>
-          <a href="Contact.html"><br>
+          <ul>
+            <li class="title">Site Map</li>
+            <li>Home</li>
+            <li>Catalog</li>
+          </ul>
         </div>
         <div class="col-md-2">
-          <b class="title">MY ACCOUNT</b><br>
-          <br>
-          Order History<br>
-          My Returns<br>
-          Logout<br>
+          <ul>
+            <li class="title">My Account</li>
+            <li>Order History</li>
+            <li>My Returns</li>
+            <li>Logout</li>
+          </ul>
         </div>
         <div class="col-md-3">
-          <b class="title">CONTACT</b><br>
-          <br>
-          Returns<br>
-          Shipping<br>
-          Legal<br>
+          <ul>
+            <li class="title">Contact</li>
+            <li>Returns</li>
+            <li>Shipping</li>
+            <li>Legal</li>
+          </ul>
         </div>
       </div>
     </footer>
