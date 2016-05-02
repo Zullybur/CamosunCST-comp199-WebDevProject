@@ -4,10 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Products</title>
+    <title>Catalog</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/default.css" rel="stylesheet">
-    <link href="css/products.css" rel="stylesheet">
+	<link href="css/product.css" rel="stylesheet">
+    <link href="css/catalog.css" rel="stylesheet">
+
  </head>
   <body>
     <nav class="navbar navbar-fixed-top navbar-default">
@@ -20,36 +22,38 @@
         <div class = "collapse navbar-collapse navHeaderCollapse">
           <ul class = "nav navbar-nav navbar-left navigation">
             <li><a href = "index.html" class="scroll">Home</a></li>
-            <li><a href = "products.html" class="scroll">Products</a></li>
+            <li><a href = "catalog.html" class="scroll">Products</a></li>
             <li><a href = "contact.html" class="scroll">Contact</a></li>
           </ul>
       </div>
     </div>
   </nav>
-    <header>
-
-    <div class="jumbotron">
-    <img src="images/header.jpg" alt="Pic of boat">
+  <section>
+    <div class="container products col-md-12">
+      <div class="page-title">
+          <h1>Yachts</h1>
+          <img src="images/logo.png">
+      </div>
     </div>
+  </section>
 
     <div class="container">
-      <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-12">
           <h2 class="prodName">Benetti</h2>
-          <p class="abouttext">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p class="abouttext">Emerging Lufthansa sleepy, bespoke Melbourne cutting-edge extraordinary vibrant Tsutaya Porter exquisite exclusive essential eclectic cosy. Scandinavian Singapore cutting-edge, uniforms K-pop Ginza exquisite izakaya the best Boeing 787 the highest quality. Joy St Moritz smart Marylebone Nordic Shinkansen. Hand-crafted smart punctual alluring, Comme des Garçons essential delightful perfect Toto exquisite charming signature. Melbourne hand-crafted soft power remarkable espresso destination smart Ettinger. Zürich discerning joy flat white Marylebone. Uniforms Shinkansen Muji, vibrant cosy iconic smart the highest quality exquisite.</p>
         </div>
         <div class="col-md-4">
           <h2 class="subtitle">Asking Price</h2>
-          <p>$1,000,000 </p>
+          <p>$39,950,000</p>
         </div>
         <div class="col-md-4">
           <h2 class="subtitle">Length</h2>
-          <p>90m (3.04ft)</p>
+          <p>90.6m (304ft)</p>
         </div>
 		<div class="col-md-4">
           <h2 class="subtitle">Construction</h2>
-          <p>Hull: Brown Mahogany</p>
+          <p>Hull - Steel, Superstructure - Aluminium, Deck - Teak</p>
         </div>
 		<div class="col-md-4">
         <h2 class="subtitle">Built</h2>
@@ -57,40 +61,34 @@
         </div>
 		<div class="col-md-4">
         <h2 class="subtitle">Beam</h2>
-        <p>12.2m (40ft)</p>
+        <p>12.8m (42ft)</p>
         </div>
 		<div class="col-md-4">
         <h2 class="subtitle">Displacement</h2>
-        <p>1,243 Tonnes.</p>
+        <p>1,243 Tonnes</p>
         </div>
 		<div class="col-md-12">
         <h2 class="subtitle">Gallery</h2>
-
+		</div>
 		
-		<!-- CAROUSEL COMMENT HERE  SUPER SUPER COMMENT: -->
-		
-		<div id="carousel">
-			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<div id="carousel" class="col-md-12">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel" >
 					<ol class="carousel-indicators">
 						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 						<li data-target="#myCarousel" data-slide-to="1"></li>
 						<li data-target="#myCarousel" data-slide-to="2"></li>
-						<li data-target="#myCarousel" data-slide-to="3"></li>
 					</ol>
 
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox">
 					<div class="item active">
-						<img src="images/yacht1.jpg" alt="Boat" height="500" width="500">
+						<img src="images/highres-yacht1.jpg" alt="Boat">
 					</div>
 					<div class="item">
-						<img src="images/yacht2.jpg" alt="Boat2" height="500" width="500">
+						<img src="images/highres-yacht2.jpg" alt="Boat2">
 					</div>
 					<div class="item">
-						<img src="images/yacht3.jpg" alt="Boat3" height="500" width="500">
-					</div>
-					<div class="item">
-						<img src="images/yacht4.jpg" alt="Boat4" height="500" width="500">
+						<img src="images/highres-yacht4.jpg" alt="Boat3">
 					</div>
 				</div>
 
@@ -113,4 +111,29 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
+  <footer class="footer">
+      <div class="row">
+        <div class="col-md-3 col-md-offset-2">
+          TOP BRANDS<br>
+          <br>
+          Azzam<br>
+          Barchetta 157<br>
+          Maltese Falcon<br>
+        </div>
+        <div class="col-md-2">
+          MY ACCOUNT<br>
+          <br>
+          Order History<br>
+          My Returns<br>
+          Logout<br>
+        </div>
+        <div class="col-md-3">
+          CONTACT<br>
+          <br>
+          Returns<br>
+          Shipping<br>
+          Legal<br>
+        </div>
+      </div>
+    </footer>
 </html>
