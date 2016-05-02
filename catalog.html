@@ -8,8 +8,9 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/default.css" rel="stylesheet">
     <link href="css/catalog.css" rel="stylesheet">
- </head>
+  </head>
   <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-fixed-top navbar-default">
       <div class = "container">                            
         <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
@@ -23,147 +24,150 @@
             <li class="active"><a href="#" class="scroll">Catalog</a></li>
             <li><a href = "contact.html" class="scroll">Contact</a></li>
           </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-  <section>
-    <div class="container products col-md-12">
-      <div class="page-title">
-          <h1>Yachts</h1>
-          <img src="images/logo.png">
+    </nav>
+    <!-- Page Header -->
+    <section>
+      <div class="container products col-md-12">
+        <div class="page-title">
+            <h1>Yachts</h1>
+            <img src="images/logo.png">
+        </div>
       </div>
-    </div>
-  </section>
-  <section>
-    <div class="container col-md-12" id="filter">
-      <div class="filter-title">
-        <h3>Yacht Search</h3>
-      </div>
-      <div class="filter-body styled-select">
-        <div class="row">
-          <div class="col-md-4 dropdown">
-              <label>Name:</label>
-              <select>
-                <option>Big mama</option>
-                <option>Biga mama 2</option>
-              </select>
-              <label>Currency:</label>
-              <select>
-                <option>Us</option>
-                <option>Euro</option>
-              </select>
-              <label>Built:</label> 
-              <select>
-                <option>2017</option>
-                <option>2016</option>
-              </select>
-            </div>
+    </section>
+    <!-- Filter -->
+    <section>
+      <div class="container col-md-12" id="filter">
+        <div class="filter-title">
+          <h3>Yacht Search</h3>
+        </div>
+        <div class="filter-body styled-select">
+          <div class="row">
             <div class="col-md-4 dropdown">
-              <label>Shipyard:</label>
-              <select>
-                <option>Greece</option>
-                <option>Italy</option>
-              </select>
-              <label>Guests:</label>
-              <select>
-                <option>20+</option>
-                <option>50+</option>
-              </select>
-              <label>New/Used:</label>
-              <select>
-                <option>New</option>
-                <option>Used</option>
-              </select>
-            </div>
-            <div class="col-md-4">
-              <div class="yacht-type" id="radio">
-                <label>Type:</label>
-                <label for="all" class="radio-mar">All</label>
-                <input type="radio" name="type" value="all" checked> 
-                <label class="radio-mar">Motor</label>
-                <input type="radio" name="type" value="motor"> 
-                <label class="radio-mar">Sailing</label>
-                <input type="radio" name="type" value="sailing"> 
+                <label>Name:</label>
+                <select>
+                  <option>Big mama</option>
+                  <option>Biga mama 2</option>
+                </select>
+                <label>Currency:</label>
+                <select>
+                  <option>Us</option>
+                  <option>Euro</option>
+                </select>
+                <label>Built:</label> 
+                <select>
+                  <option>2017</option>
+                  <option>2016</option>
+                </select>
               </div>
-              <div class="slider"> 
-                <label>Price:</label>
-                <input type="range"  min="0" max="100" value="0"/>
-                <label>Length</label>
-                <input type="range"  min="0" max="100" value="0"/>
+              <div class="col-md-4 dropdown">
+                <label>Shipyard:</label>
+                <select>
+                  <option>Greece</option>
+                  <option>Italy</option>
+                </select>
+                <label>Guests:</label>
+                <select>
+                  <option>20+</option>
+                  <option>50+</option>
+                </select>
+                <label>New/Used:</label>
+                <select>
+                  <option>New</option>
+                  <option>Used</option>
+                </select>
               </div>
-            </div>
+              <div class="col-md-4">
+                <div class="yacht-type" id="radio">
+                  <label>Type:</label>
+                  <label for="all" class="radio-mar">All</label>
+                  <input type="radio" name="type" value="all" checked> 
+                  <label class="radio-mar">Motor</label>
+                  <input type="radio" name="type" value="motor"> 
+                  <label class="radio-mar">Sailing</label>
+                  <input type="radio" name="type" value="sailing"> 
+                </div>
+                <div class="slider"> 
+                  <label>Price:</label>
+                  <input type="range"  min="0" max="100" value="0"/>
+                  <label>Length</label>
+                  <input type="range"  min="0" max="100" value="0"/>
+                </div>
+              </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-  <section>
-    <div class="container">
-      <div class="row new-section">
-        <div class="col-md-4 contain">
-          <div class="product-thumb1">
+    </section>
+    <!-- Catalog Items -->
+    <section>
+      <div class="container">
+        <div class="row new-section">
+          <div class="col-md-4 contain">
+            <div class="product-thumb1">
+            </div>
+            <div class="content-thumb">
+              <h4>1998 Viking 58 Convertible</h4>
+              <h5>Price: 36,006,00</h5>
+              <h6>Length 51m(167.3ft)</h6>
+              <button class="btn">More</button>
+            </div>
           </div>
-          <div class="content-thumb">
-            <h4>1998 Viking 58 Convertible</h2>
-            <h5>Price: 36,006,00</h3>
-            <h6>Length 51m(167.3ft)</h6>
-            <button class="btn">More</button>
-          </div>
-        </div>
-        <div class="col-md-4 contain">
-          <div class="product-thumb2">
-          </div>     
-          <div class="content-thumb">
+          <div class="col-md-4 contain">
+            <div class="product-thumb2">
+            </div>     
+            <div class="content-thumb">
               <h4>1983 Feadship C Van Lent</h4>
               <h5>Price: 36,826,284</h5>
               <h6>Length 51m(167.3ft)</h6>
               <button class="btn">More</button>
             </div>
-        </div>
-        <div class="col-md-4 contain">
-          <div class="product-thumb3">
           </div>
+          <div class="col-md-4 contain">
+            <div class="product-thumb3">
+            </div>
             <div class="content-thumb">
                 <h4>2011 Proteksan Turquoise</h4>
                 <h5>Price: 36,826,284</h5>
                 <h6>Length 51m(167.3ft)</h6>
                 <button class="btn">More</button>
             </div>
+          </div>
         </div>
-      </div>
-        <div class="row">
-          <div class="col-md-4 contain">
-            <div class="product-thumb4">
-            </div>
-            <div class="content-thumb">
+          <div class="row">
+            <div class="col-md-4 contain">
+              <div class="product-thumb4">
+              </div>
+              <div class="content-thumb">
                 <h4>1986 Swedeship</h4>
                 <h5>Price: 36,826,284</h5>
                 <h6>Length 51m(167.3ft)</h6>
                 <button class="btn">More</button>
               </div>
-          </div>
-          <div class="col-md-4 contain">
-            <div class="product-thumb5">
-            </div>     
-            <div class="content-thumb">
+            </div>
+            <div class="col-md-4 contain">
+              <div class="product-thumb5">
+              </div>     
+              <div class="content-thumb">
                 <h4>2018 McMullen &amp; Wing</h4>
                 <h5>Price: 36,826,284</h5>
                 <h6>Length 51m(167.3ft)</h6>
                 <button class="btn">More</button>
               </div>
-          </div>
-          <div class="col-md-4 contain">
-            <div class="product-thumb6">
             </div>
+            <div class="col-md-4 contain">
+              <div class="product-thumb6">
+              </div>
               <div class="content-thumb">
                 <h4>2003 Benetti</h4>
                 <h5>Price: 36,826,284</h5>
                 <h6>Length 51m(167.3ft)</h6>
                 <button class="btn">More</button>
               </div>
+            </div>
           </div>
-        </div>
-    </div>
-  </section>
+      </div>
+    </section>
     <footer class="footer">
       <div class="row">
         <div class="col-md-3 col-md-offset-2">
