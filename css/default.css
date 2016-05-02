@@ -4,6 +4,10 @@
 */
 html, body {
   height: 100%;
+  font-family: Georgia;
+}
+ul{
+  list-style-type: none;
 }
 
 #wrap {
@@ -17,12 +21,17 @@ html, body {
 
 .footer {
   position: relative;
-  margin-top: -100px;       /* negative value of footer height */
-  height: 100px;
+  height: 150px;
+  height: 150px;
   clear:both;
-  padding-top:20px;
+  padding-top: 50px;
   text-align: center;
   background-color: #f8f8f8;
+  font-size: .8em
+}
+
+.footer a{
+  color: #333;
   font-size: .8em;
   color: #777;
 }
@@ -30,11 +39,6 @@ html, body {
 .OF-footer a:link {
     color: #777;
 }
-
-.OF-footer a:visited {
-    color: #777;
-}
-
 .OF-footer a:hover {
     color: black;
 }
