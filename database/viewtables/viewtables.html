@@ -1,0 +1,78 @@
+<html>
+<head><title>Ocean Forward</title></head>
+<body>
+
+<script type="text/javascript">
+    function ajaxFunction() {
+        var xmlHttp;
+        //try/catch to verify if the browser supports AJAX
+        try {
+            // Firefox, Opera 8.0+, Safari
+            xmlHttp = new XMLHttpRequest();
+        } catch (e) {
+            // Internet Explorer of several flavors
+            try {
+                xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+            } catch (e) {
+                try {
+                    xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+                } catch (e) {
+                    // Print an error message
+                    alert("Your browser does not support AJAX!");
+                    return false;
+                }
+            }
+        }
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState == 4) {
+                document.getElementById("returnedName").innerHTML = xmlHttp.responseText;
+            }
+        }
+
+        // Create variable names for the form input values
+        // Get the value of form inputs and url encode them
+        var selectValue = document.getElementById('select').value;
+        selectValue = escape(selectValue);
+        var fromValue = document.getElementById('from').value;
+        fromValue = escape(fromValue);
+        var whereValue = document.getElementById('where').value;
+        whereValue = escape(whereValue);
+
+        //Create variable names for the form input names
+        //get the names of the form inputs and url encode them
+        var selectName = document.getElementById('select').name;
+        selectName = escape(selectName);
+        var fromName = document.getElementById('from').name;
+        fromName = escape(fromName);
+        var whereName = document.getElementById('where').name;
+        whereName = escape(whereName);
+
+        //Create the string with the request value pairs.
+        var request = selectName + '=' + selectValue + '&' + fromName + '=' + fromValue + '&' + whereName + '=' + whereValue;
+        // Open the connection and create the URL as a POST.
+        xmlHttp.open("POST", "viewtables.php", true);
+        // Set the content type so the server knows how to get this data.
+        xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        // Send the data
+        xmlHttp.send(request);
+    }
+</script>
+
+
+<!-- Get the input value to be sent to the server -->
+<h1 style="color: rgb(74, 184, 255);">MySql and Ajax</h1></br>
+<p style="color: rgb(136, 224, 255);"><b>
+    Select: <input type="text" id="select" name="selectName"/> </br>
+    From: <input type="text" id="from" name="fromName"/> </br>
+    Where: <input type="text" id="where" name="whereName"/> </br>
+</b></p>
+<!-- Create a button that when clicked will run the above java script AJAX function -->
+<button style="background-color: rgb(26, 45, 255)" value="DoIt" onClick="ajaxFunction()">Submit</button>
+<br>
+
+<!-- Create a named space that will be used to put the value returned from the server -->
+<h1>Your Results: </h1></br>
+<div id="returnedName"></div>
+
+</body>
+</html>
