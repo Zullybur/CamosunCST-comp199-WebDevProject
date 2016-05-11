@@ -7,8 +7,8 @@ $where = urldecode(htmlspecialchars(strip_tags(trim($_POST['whereName'])), ENT_N
 // Connect to the MySQL server.
 require "../../../database.inc.php";  //////////
 // Die if no connect
-if (!$Link) {
-    die('Could not connect: ' . mysqli_error($Link));
+if (!$link) {
+    die('Could not connect: ' . mysqli_error($link));
 }
 
 //set final variables, using preg_replace to remove semicolons and SQL verbs.
@@ -26,10 +26,10 @@ if ($where == NULL) {
 }
 
 // Choose the DB and run a query.
-mysqli_select_db($Link, "C199grp03DB");
-$result = mysqli_query($Link, $sql);
+mysqli_select_db($link, "C199grp03DB");
+$result = mysqli_query($link, $sql);
 //print out errors if there are any:
-echo mysqli_error($Link);
+echo mysqli_error($link);
 
 //Print the resulting data:
 mysqli_data_seek($result, 0);

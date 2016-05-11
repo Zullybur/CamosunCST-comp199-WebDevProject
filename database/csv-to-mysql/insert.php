@@ -39,15 +39,12 @@
 					break;
 				case 'Model':
 					$model = array($fileop[0], $fileop[1], $fileop[2], $fileop[3], $fileop[4], $fileop[5], $fileop[6],
-						$fileop[7], $fileop[8], $fileop[9], $fileop[10], $fileop[11], $fileop[12], $fileop[13], $fileop[14],
-						$fileop[15], $fileop[16], $fileop[17], $fileop[18], $fileop[19], $fileop[20], $fileop[21]);
+						$fileop[7], $fileop[8], $fileop[9], $fileop[10], $fileop[11], $fileop[12], $fileop[13]);
 
 					$sql = mysqli_query($link, "INSERT INTO $table (model_no, model_name, length, brand, price, beds, 
-						baths, crew, year_built, beam, draft, type, class, flag, engine_type, tonnage, construction, 
-						cruising_speed, max_seed, external_design, interior_design, number_guests) 
+						baths, year_built, draft, class, tonnage, cruising_speed, description) 
 						VALUES ($model[0], '$model[1]', $model[2], '$model[3]', $model[4], $model[5], $model[6], $model[7], $model[8],
-							 $model[9], $model[10], '$model[11]', '$model[12]', '$model[13]', '$model[14]', $model[15], '$model[16]',
-							  $model[17], $model[18], '$model[19]', '$model[20]', $model[21])");
+							 $model[9], '$model[10]', $model[11], $model[12], '$model[13]')");
 					break;
 				case 'Customers':
 					$customers = array($fileop[0], $fileop[1], $fileop[2], $fileop[3], $fileop[4], $fileop[5], $fileop[6],
