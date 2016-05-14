@@ -10,8 +10,8 @@
 
 		$data = mysqli_query($link, $user_query); 
 		$result = mysqli_fetch_array($data);
-		print_r($result);
+		#print_r($result);
 		echo mysqli_error($link);
+		return $result;
 	}
-	getModel("'Silver Fast'");
 ?>
