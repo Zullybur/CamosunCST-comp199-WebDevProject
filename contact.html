@@ -46,9 +46,10 @@
     <!-- Contact Form -->
     <section>
       <div class="col-md-8 col-md-offset-2">
+        <label><h2>Contact Form:</h2></label>
         <form name="email_template" method="post" id="formbox" action="script/contact_form.php">
           <legend>Personal Information</legend>
-          <div class="row">
+          <div class="row top_row">
             <div class="col-sm-2">
               <label>First Name:</label>
             </div>
@@ -57,12 +58,12 @@
             </div>
             <div class="col-sm-2 col-sm-offset-2">
               <label>Last Name:</label>
-              </div>
+            </div>
             <div class="col-sm-3">
               <input type="text" class="form_element_lrg" name="lastname" required id="lastname" placeholder="Last Name" />
             </div>
           </div>
-          <div class="row">
+          <div class="row bottom_row">
             <div class="col-sm-2">
               <label>Email:</label>
               </div>
@@ -77,7 +78,7 @@
             </div>
           </div>
           <legend>Preferred contact method</legend>
-          <div class="row">
+          <div class="row bottom_row">
             <div class="col-sm-3 col-sm-offest-1 radio_label">
               <label>Email:</label>
             </div>
@@ -92,7 +93,7 @@
             </div>
           </div>
           <legend>Message</legend>
-          <div class="row">
+          <div class="row bottom_row">
             <div class="col-md-10 col-md-offset-1">
               <input type="text" class="form_element_lrg big_message_box" required name="message">
             </div>

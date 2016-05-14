@@ -1,23 +1,24 @@
+#formbox {
+    border-style: solid;
+    border-width: 1px;
+    padding: 2em 4em;
+    margin: 0 0 3em 0;
+}
 .form_element_lrg {
     width: 100%;
+}
+.top_row {
+    margin-bottom: 1em;
+}
+.bottom_row {
+    margin-bottom: 1em;
 }
 .radio_label {
     text-align: right;
 }
-
-legend {
-    margin-top: 1em;
-}
-
 .big_message_box {
     min-height: 10em;
 }
 .button {
     width: 100%;
-}
-.submit {
-    background-color: Green;
-}
-.form_bottom {
-    margin-bottom: 3em;
 }
