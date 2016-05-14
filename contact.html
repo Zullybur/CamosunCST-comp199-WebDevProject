@@ -49,32 +49,62 @@
         <form name="email_template" method="post" id="formbox" action="script/contact_form.php">
           <legend>Personal Information</legend>
           <div class="row">
-            <div class="col-sm-4 col-sm-offest-1">
-              <!-- first name -->
+            <div class="col-sm-2">
+              <label>First Name:</label>
             </div>
-            <div class="col-sm-4 col-sm-offset-1">
-              <!-- last name -->
+            <div class="col-sm-3">
+              <input type="text" class="form_element_lrg" name="firstname" required id="firstname" placeholder="First Name" />
             </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4 col-sm-offest-1">
-              <!-- Email -->
-            </div>
-            <div class="col-sm-4 col-sm-offset-1">
-              <!-- Phone -->
+            <div class="col-sm-2 col-sm-offset-2">
+              <label>Last Name:</label>
+              </div>
+            <div class="col-sm-3">
+              <input type="text" class="form_element_lrg" name="lastname" required id="lastname" placeholder="Last Name" />
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-sm-offest-1">
-              <!-- Email Pref -->
+            <div class="col-sm-2">
+              <label>Email:</label>
+              </div>
+            <div class="col-sm-3">
+              <input type="text" class="form_element_lrg" name="email" required id="email" placeholder="example@email.com" />
             </div>
-            <div class="col-sm-4 col-sm-offset-1">
-              <!-- Phone Pref -->
+            <div class="col-sm-2 col-sm-offset-2">
+              <label>Phone #:</label>
+            </div>
+            <div class="col-sm-3">
+              <input type="text" class="form_element_lrg" name="phonenumber" id="phonenumber" pattern="[1-9]{3}[ -]{0,1}\d{3}[ -]{0,1}\d{4}" placeholder="999-999-9999" />
+            </div>
+          </div>
+          <legend>Preferred contact method</legend>
+          <div class="row">
+            <div class="col-sm-3 col-sm-offest-1 radio_label">
+              <label>Email:</label>
+            </div>
+            <div class="col-sm-1">
+              <input type="radio" name="contact_method" value="email" class="contact_method" />
+            </div>
+            <div class="col-sm-3 col-sm-offset-2 radio_label">
+              <label>Phone:</label>
+            </div>
+            <div class="col-sm-1">
+              <input type="radio" name="contact_method" value="phone" class="contact_method" />
             </div>
           </div>
           <legend>Message</legend>
           <div class="row">
-            <input type="text" class="form_element_lrg" required name="message">
+            <div class="col-md-10 col-md-offset-1">
+              <input type="text" class="form_element_lrg big_message_box" required name="message">
+            </div>
+          </div>
+          <legend></legend>
+          <div class="row form_bottom">
+            <div class="col-md-3 col-md-offset-2">
+              <input type="button" class="button" value="Clear" />
+            </div>
+            <div class="col-md-3 col-md-offset-2">
+              <input type="button" class="button submit" value="Submit" />
+            </div>
           </div>
         </form>
       </div>
