@@ -2,6 +2,9 @@
 include "database/models/model.php";
 $modelName = $_GET["model"];
 $modelArr = getModel($modelName);
+$string = str_replace(' ', '', $modelName);
+$folderLoc = "images/product_database_images/" . $string . "/";
+#print_r($folderLoc."1.jpg");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +37,7 @@ $modelArr = getModel($modelName);
     <section>
       <div class="container products col-md-12">
         <div class="page-title">
-          <h1>Benetti</h1>
+          <h1><?php print_r($modelArr[1]); ?></h1>
           <img src="images/logo.png">
         </div>
       </div>
@@ -43,35 +46,47 @@ $modelArr = getModel($modelName);
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h2 class="prodName">Benetti</h2>
+            <h2 class="prodName"><?php print_r($modelArr[1]); ?></h2>
             <p class="abouttext">
-              Emerging Lufthansa sleepy, bespoke Melbourne cutting-edge extraordinary vibrant Tsutaya Porter exquisite exclusive essential eclectic cosy. Scandinavian Singapore cutting-edge, uniforms K-pop Ginza exquisite izakaya the best Boeing 787 the highest quality. Joy St Moritz smart Marylebone Nordic Shinkansen. Hand-crafted smart punctual alluring, Comme des Garçons essential delightful perfect Toto exquisite charming signature. Melbourne hand-crafted soft power remarkable espresso destination smart Ettinger. Zürich discerning joy flat white Marylebone. Uniforms Shinkansen Muji, vibrant cosy iconic smart the highest quality exquisite.
+              <?php print_r($modelArr[12]); ?>
             </p>
           </div>
           <div class="col-md-4">
             <h2 class="subtitle">Asking Price</h2>
 			<!-- TESTING HERE -->
-            <p><?php print_r($modelArr)?></p>
+            <p><?php print_r("$".number_format($modelArr[4],2)); ?></p>
           </div>
           <div class="col-md-4">
             <h2 class="subtitle">Length</h2>
-            <p>90.6m (304ft)</p>
+            <p><?php print_r($modelArr[2]." ft"); ?></p>
           </div>
         	<div class="col-md-4">
-            <h2 class="subtitle">Construction</h2>
-            <p>Hull - Steel, Superstructure - Aluminium, Deck - Teak</p>
+            <h2 class="subtitle">Brand</h2>
+            <p><?php print_r($modelArr[3]); ?></p>
           </div>
         	<div class="col-md-4">
-            <h2 class="subtitle">Built</h2>
-            <p>2004, Royal Huffman Shipyard</p>
+            <h2 class="subtitle">Year Built</h2>
+            <p><?php print_r($modelArr[7]); ?></p>
           </div>
         	<div class="col-md-4">
-            <h2 class="subtitle">Beam</h2>
-            <p>12.8m (42ft)</p>
+            <h2 class="subtitle">Beds &amp Baths</h2>
+            <p><?php print_r("Beds: ".$modelArr[5].", Baths: ".$modelArr[6]); ?></p>
           </div>
         	<div class="col-md-4">
             <h2 class="subtitle">Displacement</h2>
-            <p>1,243 Tonnes</p>
+            <p><?php print_r(number_format($modelArr[7])." tonnes"); ?></p>
+          </div>
+			<div class="col-md-4">
+            <h2 class="subtitle">Draft</h2>
+            <p><?php print_r($modelArr[8]." ft"); ?></p>
+          </div>
+			<div class="col-md-4">
+            <h2 class="subtitle">Class</h2>
+            <p><?php print_r($modelArr[9]); ?></p>
+          </div>
+		  	<div class="col-md-4">
+            <h2 class="subtitle">Cruising Speed</h2>
+            <p><?php print_r($modelArr[11]." knots"); ?></p>
           </div>
         	<div class="col-md-12">
               <h2 class="subtitle">Gallery</h2>
@@ -82,17 +97,25 @@ $modelArr = getModel($modelName);
         				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         				<li data-target="#myCarousel" data-slide-to="1"></li>
         				<li data-target="#myCarousel" data-slide-to="2"></li>
+        				<li data-target="#myCarousel" data-slide-to="3"></li>
+        				<li data-target="#myCarousel" data-slide-to="4"></li>
         			</ol>
         			<!-- Wrapper for slides -->
         			<div class="carousel-inner" role="listbox">
         				<div class="item active">
-        					<img src="images/highres-yacht1.jpg" alt="Boat">
+        					<img src="<?php print_r($folderLoc."1.jpg") ?>" alt="Boat">
         				</div>
         				<div class="item">
-        					<img src="images/highres-yacht2.jpg" alt="Boat2">
+        					<img src="<?php print_r($folderLoc."2.jpg") ?>" alt="Boat2">
         				</div>
         				<div class="item">
-        					<img src="images/highres-yacht4.jpg" alt="Boat3">
+        					<img src="<?php print_r($folderLoc."3.jpg") ?>" alt="Boat3">
+        				</div>
+        				<div class="item">
+        					<img src="<?php print_r($folderLoc."4.jpg") ?>" alt="Boat3">
+        				</div>
+        				<div class="item">
+        					<img src="<?php print_r($folderLoc."5.jpg") ?>" alt="Boat3">
         				</div>
         			</div>
         			<!-- Left and right carousel controls -->
