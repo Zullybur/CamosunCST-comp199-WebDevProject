@@ -1,3 +1,8 @@
+<?php
+include "database/models/model.php";
+$modelName = $_GET["model"];
+$modelArr = getModel($modelName);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,7 +50,8 @@
           </div>
           <div class="col-md-4">
             <h2 class="subtitle">Asking Price</h2>
-            <p>$39,950,000</p>
+			<!-- TESTING HERE -->
+            <p><?php print_r($modelArr)?></p>
           </div>
           <div class="col-md-4">
             <h2 class="subtitle">Length</h2>
