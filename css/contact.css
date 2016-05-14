@@ -1,3 +1,9 @@
+.header-image {
+    background: url("../images/contact/contact_header_nataly.jpg") no-repeat scroll 0px / cover rgba(104, 100, 147, 0.8);
+}
+.main-page-text {
+    text-align: left;
+}
 .contact_header {
     font-weight: bold;
 }
