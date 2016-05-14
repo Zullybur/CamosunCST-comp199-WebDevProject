@@ -51,7 +51,7 @@ ul{
   height: 150px;
   height: 150px;
   clear:both;
-  padding-top: 50px;
+  padding-top: 24px;
   padding-left: 0px;
   text-align: center;
   background-color: #f8f8f8;
@@ -74,4 +74,13 @@ ul{
 }
 .OF-footer a:active {
     color: black;
+}
+.copy {
+  font-size: .8em;
+}
+.copy_top {
+  padding-top: 1em;
+}
+.copy_bottom {
+  padding-bottom: 1em;
 }
