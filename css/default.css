@@ -41,6 +41,10 @@ ul{
   display: block;
   margin: 0 auto;
 }
+.main-page-content-title {
+  margin-top: 1em;
+  text-align: center;
+}
 .footer {
   color: #777;
   position: relative;
