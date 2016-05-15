@@ -92,6 +92,34 @@
         </div>
       </div>
     </section>
+    <section>
+      <div class="col-md-8 col-md-offset-2">
+        <!-- Success Message -->
+        <div class="alert alert-success alert-dismissible alert_box" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+          <span class="sr-only">Success:</span>Your email has been sent!
+        </div>
+        <!-- Email Error -->
+        <div class="alert alert-danger alert-dismissible alert_box" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>Enter a valid email address.
+        </div>
+        <!-- Email Submission Error -->
+        <div class="alert alert-danger alert-dismissible alert_box" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>We were unable to send your email, please try again.
+        </div>
+      </div>
+    </section>
     <!-- Contact Form -->
     <section>
       <div class="col-md-8 col-md-offset-2">
