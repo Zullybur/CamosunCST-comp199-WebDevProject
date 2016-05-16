@@ -6,7 +6,6 @@
     <title>Cart</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/default.css" rel="stylesheet">
-    <link href="css/contact.css" rel="stylesheet">
     <link href="css/form.css" rel="stylesheet">
     <link href="css/cart.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
