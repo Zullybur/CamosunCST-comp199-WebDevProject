@@ -1,3 +1,26 @@
+<?php
+if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+  $validEmail = True;
+  //DEBUG: TODO: Comment out
+  print_r($_POST);
+  // Set email variables
+  $to = "oceanforwardyachts@gmail.com";
+  $subject = "Automated Web-Form Email";
+  $message = "First Name: ".$_POST['firstname']."\r\n".
+             "Last Name: ".$_POST['lastname']."\r\n".
+             "Email: ".$_POST['email']."\r\n".
+             "Phone: ".$_POST['phonenumber']."\r\n".
+             "Preferred Contact Method: ".$_POST['contact_method']."\r\n".
+             "Message Content:\r\n".$_POST['message'];
+  //DEBUG: TODO: Comment out
+  print_r($message);
+  $success = mail($to, $subject, $message);
+  //DEBUG: TODO: Comment out
+  print_r($success);
+} else {
+  $validEmail = False;
+}
+?>
 <html>
   <head>
     <meta charset="utf-8">
@@ -57,7 +80,7 @@
                 Email:
               </div>
               <div class="col-sm-8">
-                <a href="mailto:info@oceanforward.com">info@oceanforward.com</a>
+                <a href="mailto:info@oceanforward.com">oceanforwardyachts@gmail.com</a>
               </div>
             </div>
             <div class="row">
@@ -92,11 +115,45 @@
         </div>
       </div>
     </section>
+    <section>
+      <div class="col-md-8 col-md-offset-2">
+        <?php if(isset($success) && $success) { ?>
+        <!-- Success Message -->
+        <div class="alert alert-success alert-dismissible alert_box" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+          <span class="sr-only">Success:</span>Your email has been sent!
+        </div>
+        <?php } elseif (isset($validEmail) && $validEmail) { ?>
+        <!-- Email Submission Error -->
+        <div class="alert alert-danger alert-dismissible alert_box" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>We were unable to send your email, please try again.
+        </div>
+        <!-- TODO: AJAX TO RE-INSERT FORM DATA? -->
+        <?php } elseif (isset($_POST['email'])) { ?>
+        <!-- Email Error -->
+        <div class="alert alert-danger alert-dismissible alert_box" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>Enter a valid email address.
+        </div>
+        <!-- TODO: AJAX TO RE-INSERT FORM DATA? -->
+        <?php } ?>
+      </div>
+    </section>
     <!-- Contact Form -->
     <section>
       <div class="col-md-8 col-md-offset-2">
         <label><h3>Contact Form</h3></label>
-        <form name="email_template" method="post" id="formbox" action="script/contact_form.php">
+        <form name="email_template" method="post" id="formbox" action="contact.php">
           <legend>Personal Information</legend>
           <div class="row top_row">
             <div class="col-sm-2">
@@ -123,7 +180,7 @@
               <label>Phone #:</label>
             </div>
             <div class="col-sm-3">
-              <input type="text" class="form_element_lrg" name="phonenumber" id="phonenumber" pattern="[1-9]{3}[ -]{0,1}\d{3}[ -]{0,1}\d{4}" placeholder="999-999-9999" />
+              <input type="text" class="form_element_lrg" name="phonenumber" id="phonenumber" pattern="[1-9]\d{2}[ -]{0,1}\d{3}[ -]{0,1}\d{4}" placeholder="999-999-9999" />
             </div>
           </div>
           <legend>Preferred contact method</legend>
@@ -144,7 +201,7 @@
           <legend>Message</legend>
           <div class="row bottom_row">
             <div class="col-md-10 col-md-offset-1">
-              <input type="text" class="form_element_lrg big_message_box" required name="message">
+              <textarea class="form_element_lrg big_message_box" required name="message" rows="10" cols="450"></textarea>
             </div>
           </div>
           <legend></legend>
@@ -153,7 +210,7 @@
               <input type="button" class="button" value="Clear" />
             </div>
             <div class="col-md-3 col-md-offset-2">
-              <input type="button" class="button submit" value="Submit" />
+              <input type="submit" class="button submit" value="Submit" />
             </div>
           </div>
         </form>
