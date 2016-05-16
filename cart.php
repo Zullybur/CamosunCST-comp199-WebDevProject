@@ -31,10 +31,11 @@
     </nav>
     <!-- Page Header -->
     <section>
-      <div class="container header-image col-md-12">
+      <div class="col-md-12">
         <div class="page-title">
-          <h1>Cart</h1>
-          <img src="images/logo.png">
+          <img src="images/black-logo.png">
+          <h1>Shopping Cart</h1>
+          <img src="images/black-logo.png">
         </div>
       </div>
     </section>
