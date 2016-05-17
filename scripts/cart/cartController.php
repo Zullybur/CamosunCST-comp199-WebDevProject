@@ -28,8 +28,8 @@ function getCartItems($customerID = '1') {
     //                              $array['first_name'].$array['last_name'],
     //                              $array['model_no'], $array['model_name'], 
     //                              $array['price'], $array['quantity']);
-    //     $cartItem = new CartItem();
-    //     $string = $cartItem->getCustomerName();
+    // //     $cartItem = new CartItem();
+    //     $string = $cartItem;
     //     echo "\nCart Output: $string\n";
     // }
     return $resultArray;

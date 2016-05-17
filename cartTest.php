@@ -7,7 +7,7 @@ $error1052 = "<html><body>An error has occured: 1049<br>\n".
 // Require files for cart operations
 (require 'scripts/cart/cartController.php') or exit($error1049);
 
-getCartItems();
+$resultArray = getCartItems();
 
 foreach ($resultArray as $result => $array) {
     // $array['customer_id']

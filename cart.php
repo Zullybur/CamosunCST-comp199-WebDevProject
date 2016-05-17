@@ -1,6 +1,8 @@
 <?php
+// Get initial data from cart table to display
 include("scripts/cart/cartController.php");
 $resultArray=getCartItems();
+
 ?>
 <html>
   <head>
@@ -13,7 +15,11 @@ $resultArray=getCartItems();
     <link href="css/form.css" rel="stylesheet">
     <link href="css/cart.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+    <script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
+    <script src="scripts/cart/cartJQuery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      // Scripts here?
+    </script>
   </head>
   <body>
     <!-- Navbar -->
@@ -43,6 +49,13 @@ $resultArray=getCartItems();
         </div>
       </div>
     </section>
+    <!-- debug content -->
+    <section>
+      <legend>DEBUG: POST DATA</legend>
+      <?php
+      echo "Post:\n<pre>\n<code>\n"; print_r($resultArray); echo "\n</pre>\n</code>\n";
+      ?>
+    </section>
     <!-- Page Content -->
     <section>
       <div class="col-md-8 col-md-offset-2" style="display:table;">
@@ -54,8 +67,9 @@ $resultArray=getCartItems();
 			<?php
 			   foreach ($resultArray as $result => $array){
 				  echo "\n<tr>\n<td><legend class=\"legend\">".$array['model_name']."</legend></td>\n</tr>\n";
-					echo "<tr>\n<td><ul><li>Quantity: <input type=\"text\" name=\"quantity\" id=\"qtytxt\"> ";
-					echo "<a href=\"#\" class=\"updatedelete\">Update</a> | <a href=\"#\" class=\"updatedelete\">Delete</a></li>\n";
+					echo "<tr>\n<td><ul><li>Quantity: <input type=\"text\" name=\"quantity\" onchange=\"quantityChange();\" class=\"qtytxt\" id=\"qty-cust-".$array['customer_id']."-mod-".$array['model_no']."\" value=\"".$array['quantity']."\"> ";
+					echo "<a href=\"\" id=\"upd-cust".$array['customer_id']."-mod-".$array['model_no']."\" name=\"update\" onclick=\"quantityUpdate();\" class=\"updatedelete\">Update</a> | ";
+          echo "<a href=\"\" id=\"del-cust".$array['customer_id']."-mod-".$array['model_no']."\" onclick=\"quantityDelete();\" name=\"delete\" class=\"updatedelete\">Delete</a></li>\n";
 					echo "<li class=\"boatprice\">$".number_format($array['price'],2)."</li>\n";
 					echo "<li>Sold by: </li>\n<li class=\"alignright\">$".number_format($array['price'],2);
 					echo "</li>\n</ul>\n</td>\n</tr>\n";
@@ -72,7 +86,7 @@ $resultArray=getCartItems();
 							</form> 
 							</li>
 							<li>
-							<a href="#" class="updatedelete">Delete All</a>
+							<a href="#" id="deleteAll" class="updatedelete">Delete All</a>
 							</li>
 						</ul>
 				</td>
