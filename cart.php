@@ -45,21 +45,43 @@
         <label><h3>Your Shopping Cart</h3></label>
         <!--Form needs a php file to link to here -->
         <form name="cart" method="post" id="formbox">
-            <table border="1">
-                <tr>
+            <table id="cartcontents">
+			<!-- each individual boat in the cart will be php-generated -->
+              <tr>
+			  <td>
+			  <legend class="legend">Benetti</legend>
+			  </td>
+			  </tr>
+			  <tr>
                 <td>
-			<ul>
-              <li class="boatname">Name of boat</li>
-              <li>Quantity: <input type="text" name="quantity" id="qtytxt">
-                <a href="#" class="updatedelete">Update | </a>
-                <a href="#" class="updatedelete">Delete</a>
-              </li>
-              <li>Price of individual boat</li>
-            </ul>
+					<ul>
+						<li>Quantity: <input type="text" name="quantity" id="qtytxt">
+						<a href="#" class="updatedelete">Update | </a>
+						<a href="#" class="updatedelete">Delete</a>
+						</li>
+						<li class="boatprice">$individual boat price$</li>
+						<li>Sold by: </li>
+						<li class="alignright">Quantity Price </li>
+					</ul>
                 </td>
-                <td class="alignright">another thing</td>
-                <tr>
-                </table>
+              </tr>
+			  <!--end of php generated cart items -->
+			  <tr>
+				<td>
+					<legend></legend>
+						<ul class="subtotal">
+							<li>Subtotal: $10010010</li>
+							<form>
+								<input type="button" class="btn" id="checkout" onClick="#" value="Checkout">
+							</form> 
+							</li>
+							<li>
+							<a href="#" class="updatedelete">Delete All</a>
+							</li>
+						</ul>
+				</td>
+			</tr>
+            </table>
         </form>
       </div>
     </section>

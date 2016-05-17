@@ -18,7 +18,8 @@
   margin: auto 0;
 }
 #qtytxt {
-	width: 20px;
+	width: 30px;
+	padding-left: 40px;
 }
 
 .boatname {
@@ -29,6 +30,48 @@
 	font-size: 10px;
 }
 
+.deleteall {
+	font-size: 15px;
+	text-align: centre;
+}
+
 .alignright {
 	text-align: right;
+}
+
+#cartcontents {
+	width: 100%;
+}
+
+.legend {
+	margin: 20px;
+	width: 100%;
+	padding-right: 50px;
+	font-size: 24px;
+}
+
+.boatprice {
+	color: red;
+}
+
+#test {
+	text-align:centre;
+}
+
+.subtotal {
+	text-align: right;
+}
+
+td {
+	width: 100%;
+}
+
+#checkout {
+	background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+	height: 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }
