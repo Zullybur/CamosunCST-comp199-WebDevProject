@@ -1,3 +1,7 @@
+<?php
+include("scripts/cart/cartController.php");
+$resultArray=getCartItems();
+?>
 <html>
   <head>
     <meta charset="utf-8">
@@ -47,24 +51,16 @@
         <form name="cart" method="post" id="formbox">
             <table id="cartcontents">
 			<!-- each individual boat in the cart will be php-generated -->
-              <tr>
-			  <td>
-			  <legend class="legend">Benetti</legend>
-			  </td>
-			  </tr>
-			  <tr>
-                <td>
-					<ul>
-						<li>Quantity: <input type="text" name="quantity" id="qtytxt">
-						<a href="#" class="updatedelete">Update | </a>
-						<a href="#" class="updatedelete">Delete</a>
-						</li>
-						<li class="boatprice">$individual boat price$</li>
-						<li>Sold by: </li>
-						<li class="alignright">Quantity Price </li>
-					</ul>
-                </td>
-              </tr>
+			<?php
+			   foreach ($resultArray as $result => $array){
+				    echo "<tr><td><legend class=\"legend\">".$array['model_name'];
+					echo "</legend></td></tr><tr><td><ul><li>Quantity: <input type=\"text\" name=\"quantity\" id=\"qtytxt\">";
+					echo "<a href=\"#\" class=\"updatedelete\">Update | </a> <a href=\"#\" class=\"updatedelete\">Delete</a>";
+					echo "</li><li class=\"boatprice\">$".number_format($array['price'],2)."</li>";
+					echo "<li>Sold by: </li><li class=\"alignright\">$".number_format($array['price'],2);
+					echo "</li></ul></td><tr>";
+			   }
+			?>
 			  <!--end of php generated cart items -->
 			  <tr>
 				<td>
