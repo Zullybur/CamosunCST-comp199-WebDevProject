@@ -13,7 +13,24 @@ $error1057 = "<html><body>An error has occured: 1057<br>\n".
 function getCartItems($customerID = '1') {
     // Get data from Model
     $LinkID = dbConnect();
-    $queryString = 'SELECT c.customer_id, m.brand, c.first_name, '.
+    if(isset($_GET["custid"])) {
+		//do a query to check if the KVP(custid+modelno) already exists
+		$custId = $_GET["custid"];
+		$modelNo = $_GET["modelno"];
+		//result array 0 should be ok
+		$checkQuantity = 'SELECT COUNT(*) FROM ShoppingCart WHERE Customers_customer_id='.strval($custId).' AND Model_model_no='.strval($modelNo);
+		$qtyArray = getQuery($LinkID, $checkQuantity);
+		print_r($qtyArray);
+		
+		if($qtyArray[0]['COUNT(*)'] == 0){
+			//if theres nothing in the query result then do the insert
+			echo "QtyArray[0] = 0}";
+			$insert = "INSERT INTO ShoppingCart (Customers_customer_id, Model_model_no, quantity) ".
+					"VALUES (" . $custId . "," . $modelNo . ", 1)";
+			addItem($LinkID, $insert);
+		}
+	}
+	$queryString = 'SELECT c.customer_id, m.brand, c.first_name, '.
                    'c.last_name, m.model_no, m.model_name, m.price, s.quantity '.
                    'FROM ShoppingCart s, Model m, Customers c '.
                    'WHERE s.Customers_customer_id = c.customer_id '.
@@ -34,4 +51,16 @@ function getCartItems($customerID = '1') {
     // }
     return $resultArray;
 }
+
+/* function addToCart() {
+	if(isset($_GET["custid"])) {
+		$linkID = dbConnect();
+		//generate insert statement based on values in GET
+		$custId = $_GET["custid"];
+		$modelNo = $_GET["model_no"];
+		$insert = "INSERT INTO ShoppingCart (Customers_customer_id, Model_model_no, quantity) 
+					VALUES (" . $custId . "," . $modelNo . ", 1);";
+		addItem($linkID, $insert);
+}	} */
+
 ?>

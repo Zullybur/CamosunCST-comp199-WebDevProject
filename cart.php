@@ -2,7 +2,8 @@
 // Get initial data from cart table to display
 include("scripts/cart/cartController.php");
 $resultArray=getCartItems();
-
+//?custid=1&modelno=Athena 
+//addToCart();
 ?>
 <html>
   <head>

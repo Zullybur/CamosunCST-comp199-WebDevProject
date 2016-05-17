@@ -21,6 +21,7 @@ function dbConnect() {
 // Returns: The created array from the query result
 function getQuery($LinkID, $queryString) {
     // Query database and return result
+	//echo $queryString;
     $result = mysqli_query($LinkID, $queryString);
     $i = 0;
     $resultArray = NULL;
@@ -36,7 +37,7 @@ function getQuery($LinkID, $queryString) {
 // Param $LinkID is the handler to the database identifier
 // Param $insertString is the complete insert statement to be run against the DB
 function addItem($LinkID, $insertString) {
-    (mysqli_query($LinkID, $insertString)) or exit("insert error TODO-BETTER MESSAGE<br>\n");
+    (mysqli_query($LinkID, $insertString)) or exit("insert error TODO-BETTER MESSAGE<br>\n". mysqli_error($LinkID));
 }
 // Closes the DB connection created by dbConnect
 // Pre: dbConnect() was been called

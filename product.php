@@ -1,10 +1,13 @@
 <?php
 include "database/models/model.php";
+include "scripts/cart/cartModel.php";
 $modelName = $_GET["model"];
 $modelArr = getModel($modelName);
 $string = str_replace(' ', '', $modelName);
 $folderLoc = "images/product_database_images/" . $string . "/";
-#print_r($folderLoc."1.jpg");
+#custid=1& modelno=$array[1] &1 
+$addCartGet = "cart.php?custid=1&modelno=".strval($modelArr[0]);
+echo $addCartGet; //?custid=1&modelno=Athena cart.php?custid=1&modelno=2 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,6 +91,11 @@ $folderLoc = "images/product_database_images/" . $string . "/";
             <h2 class="subtitle">Cruising Speed</h2>
             <p><?php print_r($modelArr[11]." knots"); ?></p>
           </div>
+            <div class="col-lg-1 col-lg-offset-10">
+                <form>
+                    <input type="button" class="btn" onClick="parent.location='<?php print_r($addCartGet); ?>'" value="Add to Cart">
+                </form>
+            </div>
         	<div class="col-md-12">
               <h2 class="subtitle">Gallery</h2>
         	</div>
