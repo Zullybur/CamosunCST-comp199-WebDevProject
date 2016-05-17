@@ -50,15 +50,15 @@ $resultArray=getCartItems();
         <!--Form needs a php file to link to here -->
         <form name="cart" method="post" id="formbox">
             <table id="cartcontents">
-			<!-- each individual boat in the cart will be php-generated -->
+			<!-- each individual yacht in the cart will be php-generated -->
 			<?php
 			   foreach ($resultArray as $result => $array){
-				    echo "<tr><td><legend class=\"legend\">".$array['model_name'];
-					echo "</legend></td></tr><tr><td><ul><li>Quantity: <input type=\"text\" name=\"quantity\" id=\"qtytxt\">";
-					echo "<a href=\"#\" class=\"updatedelete\">Update | </a> <a href=\"#\" class=\"updatedelete\">Delete</a>";
-					echo "</li><li class=\"boatprice\">$".number_format($array['price'],2)."</li>";
-					echo "<li>Sold by: </li><li class=\"alignright\">$".number_format($array['price'],2);
-					echo "</li></ul></td><tr>";
+				  echo "\n<tr>\n<td><legend class=\"legend\">".$array['model_name']."</legend></td>\n</tr>\n";
+					echo "<tr>\n<td><ul><li>Quantity: <input type=\"text\" name=\"quantity\" id=\"qtytxt\"> ";
+					echo "<a href=\"#\" class=\"updatedelete\">Update</a> | <a href=\"#\" class=\"updatedelete\">Delete</a></li>\n";
+					echo "<li class=\"boatprice\">$".number_format($array['price'],2)."</li>\n";
+					echo "<li>Sold by: </li>\n<li class=\"alignright\">$".number_format($array['price'],2);
+					echo "</li>\n</ul>\n</td>\n</tr>\n";
 			   }
 			?>
 			  <!--end of php generated cart items -->
