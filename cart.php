@@ -1,6 +1,8 @@
 <?php
 include("scripts/cart/cartController.php");
 $resultArray=getCartItems();
+//?custid=1&modelno=Athena 
+//addToCart();
 ?>
 <html>
   <head>
