@@ -23,13 +23,6 @@ footer {
 #content {
 	height: 700px
 }
-.product-thumb1,
-.product-thumb2,
-.product-thumb3,
-.product-thumb4,
-.product-thumb5,
-.product-thumb6{
-}
 .content-thumb{
 	width: 325px;
   height: 150px;
@@ -101,8 +94,7 @@ footer {
 .slider{
   width: 300px;
 }
-.filter-body{
-}
+
 .filter-body select{
   display: block;
   margin: 0 auto;

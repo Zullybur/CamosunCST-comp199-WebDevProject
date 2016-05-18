@@ -46,8 +46,8 @@ if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
         <div class="collapse navbar-collapse navHeaderCollapse">
           <ul class="nav navbar-nav navbar-left navigation">
             <li><a href="index.html" class="scroll">Home</a></li>
-            <li><a href="catalog.html" class="scroll">Catalog</a></li>
-            <li class="active"><a href="#" class="scroll">Contact</a></li>
+            <li><a href="catalog.php" class="scroll">Catalog</a></li>
+            <li class="active"><a href="contact.php" class="scroll">Contact</a></li>
           </ul>
         </div>
       </div>
