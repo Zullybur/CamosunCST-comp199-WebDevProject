@@ -118,9 +118,9 @@
                 print_r('<h4>'.$model["model_name"].'</h4>');
                 print_r('<h5>Price:'.$model["price"].'</h5>');
                 print_r('<h6>Length:'.$model["length"].'</h6>');
-            //<FORM>
-          // <INPUT TYPE="button" class="btn" onClick="parent.location='product.php?model=Athena'" value="More">
-         //</FORM> 
+                $encodedModelName = urlencode($model["model_name"]);
+                $clickHandler = "parent.location='product.php?model=$encodedModelName'";
+                echo "<input type='button' class='btn' onClick=$clickHandler value='More'>";
             echo"</div>
             </div>";
           }
