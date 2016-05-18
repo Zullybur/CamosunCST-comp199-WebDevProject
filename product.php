@@ -1,13 +1,12 @@
 <?php
 include "database/models/model.php";
-include "scripts/cart/cartModel.php";
 $modelName = $_GET["model"];
 $modelArr = getModel($modelName);
 $string = str_replace(' ', '', $modelName);
 $folderLoc = "images/product_database_images/" . $string . "/";
 #custid=1& modelno=$array[1] &1 
-$addCartGet = "cart.php?custid=1&modelno=".strval($modelArr[0]);
-echo $addCartGet; //?custid=1&modelno=Athena cart.php?custid=1&modelno=2 
+$addCartGet = "cart.php?addItem=true&custID=1&modelNo=".strval($modelArr[0]);
+//echo $addCartGet; //?custid=1&modelno=Athena cart.php?custid=1&modelno=2 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +71,7 @@ echo $addCartGet; //?custid=1&modelno=Athena cart.php?custid=1&modelno=2
             <p><?php print_r($modelArr[7]); ?></p>
           </div>
         	<div class="col-md-4">
-            <h2 class="subtitle">Beds &amp Baths</h2>
+            <h2 class="subtitle">Beds &amp; Baths</h2>
             <p><?php print_r("Beds: ".$modelArr[5].", Baths: ".$modelArr[6]); ?></p>
           </div>
         	<div class="col-md-4">
@@ -92,9 +91,7 @@ echo $addCartGet; //?custid=1&modelno=Athena cart.php?custid=1&modelno=2
             <p><?php print_r($modelArr[11]." knots"); ?></p>
           </div>
             <div class="col-lg-1 col-lg-offset-10">
-                <form>
-                    <input type="button" class="btn" onClick="parent.location='<?php print_r($addCartGet); ?>'" value="Add to Cart">
-                </form>
+              <input type="button" class="btn" onClick="parent.location='<?php print_r($addCartGet); ?>'" value="Add to Cart">
             </div>
         	<div class="col-md-12">
               <h2 class="subtitle">Gallery</h2>

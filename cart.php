@@ -1,7 +1,13 @@
 <?php
 // Get initial data from cart table to display
-include("scripts/cart/cartController.php");
-$resultArray=getCartItems();
+(require 'scripts/cart/cartController.php') or exit("controller not found (1023)");
+// Add new item to cart if sent in GET
+if (isset($_GET['addItem']) && $_GET['addItem'] == 'true'){
+  insertItem($_GET["custID"], $_GET["modelNo"]);
+} else if (isset($_GET['delItem']) && $_GET['delItem'] == 'true') {
+  deleteItem($_GET["custID"], $_GET["modelNo"]);
+}
+$resultArray = getCartItems();
 //?custid=1&modelno=Athena 
 //addToCart();
 ?>
@@ -52,10 +58,24 @@ $resultArray=getCartItems();
     </section>
     <!-- debug content -->
     <section>
+      <div class="col-md-6 col-md-offset-3">
+      <legend>DEBUG: GET DATA</legend>
+      <?php
+      echo "\n<pre>\n<code>\n"; print_r($_GET); echo "\n</pre>\n</code>\n";
+      ?>
+      </div>
+      <div class="col-md-6 col-md-offset-3">
       <legend>DEBUG: POST DATA</legend>
       <?php
-      echo "Post:\n<pre>\n<code>\n"; print_r($resultArray); echo "\n</pre>\n</code>\n";
+      echo "\n<pre>\n<code>\n"; print_r($_POST); echo "\n</pre>\n</code>\n";
       ?>
+      </div>
+      <div class="col-md-6 col-md-offset-3">
+      <legend>DEBUG: ARRAY DATA</legend>
+      <?php
+      echo "\n<pre>\n<code>\n"; print_r($resultArray); echo "\n</pre>\n</code>\n";
+      ?>
+      </div>
     </section>
     <!-- Page Content -->
     <section>
@@ -65,17 +85,26 @@ $resultArray=getCartItems();
         <form name="cart" method="post" id="formbox">
             <table id="cartcontents">
 			<!-- each individual yacht in the cart will be php-generated -->
-			<?php
-			   foreach ($resultArray as $result => $array){
-				  echo "\n<tr>\n<td><legend class=\"legend\">".$array['model_name']."</legend></td>\n</tr>\n";
-					echo "<tr>\n<td><ul><li>Quantity: <input type=\"text\" name=\"quantity\" onchange=\"quantityChange();\" class=\"qtytxt\" id=\"qty-cust-".$array['customer_id']."-mod-".$array['model_no']."\" value=\"".$array['quantity']."\"> ";
-					echo "<a href=\"\" id=\"upd-cust".$array['customer_id']."-mod-".$array['model_no']."\" name=\"update\" onclick=\"quantityUpdate();\" class=\"updatedelete\">Update</a> | ";
-          echo "<a href=\"\" id=\"del-cust".$array['customer_id']."-mod-".$array['model_no']."\" onclick=\"quantityDelete();\" name=\"delete\" class=\"updatedelete\">Delete</a></li>\n";
-					echo "<li class=\"boatprice\">$".number_format($array['price'],2)."</li>\n";
-					echo "<li>Sold by: </li>\n<li class=\"alignright\">$".number_format($array['price'],2);
-					echo "</li>\n</ul>\n</td>\n</tr>\n";
-			   }
-			?>
+<?php
+  foreach ($resultArray as $result => $array){
+    echo "\n<tr>\n".
+    "<td><legend class=\"legend\">".$array['model_name']."</legend></td>\n".
+    "</tr>\n".
+    "<tr>\n<td>\n<ul>\n".
+    // quantity
+    "<li>Quantity: <input type=\"text\" name=\"quantity\" onchange=\"quantityChange();\" \n".
+    "class=\"qtytxt\" id=\"qty-cust-".$array['customer_id']."-mod-".$array['model_no']."\" value=\"".$array['quantity']."\"> \n".
+    // update
+    "<a href=\"?\" id=\"upd-cust-".$array['customer_id']."-mod-".$array['model_no']."\" \n".
+    "name=\"update\" onclick=\"quantityUpdate();\" class=\"updatedelete\">Update</a> | ".
+    // delete
+    "<a href=\"cart.php?delItem=true&custID=".$array['customer_id']."&modelNo=".$array['model_no']."\" id=\"del-cust-".$array['customer_id']."-mod-".$array['model_no']."\" \n".
+    " name=\"delete\" class=\"updatedelete\">Delete</a></li>\n".
+    "<li class=\"boatprice\">$".number_format($array['price'],2)."</li>\n".
+    "<li>Sold by: </li>\n<li class=\"alignright\">$".number_format($array['price'],2)."\n".
+    "</li>\n</ul>\n</td>\n</tr>\n";
+   }
+?>
 			  <!--end of php generated cart items -->
 			  <tr>
 				<td>
