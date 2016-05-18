@@ -1,13 +1,6 @@
 <?php
-	include "database/models/model.php";
-	$modelName = $_GET["model"];
-	$modelArr = getModel($modelName);
-	$size = sizeof($modelArr);
-	$string = str_replace(' ', '', $modelName);
-	$folderLoc = "images/product_database_images/" . $string . "/";
-	#custid=1& modelno=$array[1] &1 
-	$addCartGet = "cart.php?custid=1&modelno=".strval($modelArr[0]);
-	echo $addCartGet; //?custid=1&modelno=Athena cart.php?custid=1&modelno=2 
+  include "database/models/searchData.php";
+  $modelArr = searchModel();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -111,24 +104,25 @@
       </div>
     </section>
     <!-- Catalog Items -->
-	<section>
+  <section>
       <div class="container">
         <div class="row new-section">
         <?php
-        	for(i = 0; i < size; i++) {
-	        	echo"<div class="col-md-4 contain">
-	            <div class="product-thumb1">
-	            </div>
-	            <div class="content-thumb">";
-	              print_r("<h4>".$modelArr[1]."</h4>");
-	              print_r("<h5>Price:".$modelArr[4]."</h5>");
-	              print_r("<h6>Length:".$modelArr[2]."</h6>");
-	    			//<FORM>
-					// <INPUT TYPE="button" class="btn" onClick="parent.location='product.php?model=Athena'" value="More">
-				 //</FORM> 
-	          echo"</div>
-	          </div>";
-        	}
+
+          foreach ($modelArr as &$model) {
+            echo"<div class='col-md-4 contain'>
+              <div class='product-thumb1'>
+              </div>
+              <div class='content-thumb'>";
+                print_r('<h4>'.$model["model_name"].'</h4>');
+                print_r('<h5>Price:'.$model["price"].'</h5>');
+                print_r('<h6>Length:'.$model["length"].'</h6>');
+            //<FORM>
+          // <INPUT TYPE="button" class="btn" onClick="parent.location='product.php?model=Athena'" value="More">
+         //</FORM> 
+            echo"</div>
+            </div>";
+          }
           ?>
         </div>
       </div>
