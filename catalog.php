@@ -108,12 +108,11 @@
       <div class="container">
         <div class="row new-section">
         <?php
-
           foreach ($modelArr as &$model) {
-            $folderLoc = "images/product_database_images/" . $model["model_name"] . "/";  
+            $folderLoc = "images/thum/".$model["model_name"];  
             echo"<div class='col-md-4 contain'>
               <div class='product-thumb1'>
-                <img src= $folderLoc 5.jpg>
+                <img src='$folderLoc/thum.jpg' width='325px' height='250px'>
               </div>
               <div class='content-thumb'>";
                 print_r('<h4>'.$model["model_name"].'</h4>');
