@@ -1,13 +1,20 @@
 <?php
 // Get initial data from cart table to display
+// Include file with database specific information or exit
+(require '../OFdbInfo.inc') or exit("Unable to load server/database credentials.<br>\n");
+// Require files for cart operations
 (require 'scripts/cart/cartController.php') or exit("controller not found (1023)");
+(require 'scripts/cart/cartModel.php') or exit($error1052);
+
 // Add new item to cart if sent in GET
 if (isset($_GET['addItem']) && $_GET['addItem'] == 'true'){
-  insertItem($_GET["custID"], $_GET["modelNo"]);
+  insertItem($_GET["custID"], $_GET["modelNo"], $host, $login, $pwd, $dbID);
 } else if (isset($_GET['delItem']) && $_GET['delItem'] == 'true') {
-  deleteItem($_GET["custID"], $_GET["modelNo"]);
+  deleteItem($_GET["custID"], $_GET["modelNo"], $host, $login, $pwd, $dbID);
+} else if (isset($_GET['deleteAll']) && $_GET['deleteAll'] == 'true') {
+  deleteAll($_GET["custID"], $host, $login, $pwd, $dbID);
 }
-$resultArray = getCartItems();
+$resultArray = getCartItems($host, $login, $pwd, $dbID);
 //?custid=1&modelno=Athena 
 //addToCart();
 ?>
@@ -40,7 +47,7 @@ $resultArray = getCartItems();
         <div class="collapse navbar-collapse navHeaderCollapse">
           <ul class="nav navbar-nav navbar-left navigation">
             <li><a href="index.html" class="scroll">Home</a></li>
-            <li><a href="catalog.html" class="scroll">Catalog</a></li>
+            <li><a href="catalog.php" class="scroll">Catalog</a></li>
             <li class="active"><a href="#" class="scroll">Contact</a></li>
           </ul>
         </div>
@@ -57,7 +64,7 @@ $resultArray = getCartItems();
       </div>
     </section>
     <!-- debug content -->
-    <section>
+    <!-- <section>
       <div class="col-md-6 col-md-offset-3">
       <legend>DEBUG: GET DATA</legend>
       <?php
@@ -76,7 +83,7 @@ $resultArray = getCartItems();
       echo "\n<pre>\n<code>\n"; print_r($resultArray); echo "\n</pre>\n</code>\n";
       ?>
       </div>
-    </section>
+    </section> -->
     <!-- Page Content -->
     <section>
       <div class="col-md-8 col-md-offset-2" style="display:table;">
@@ -86,7 +93,10 @@ $resultArray = getCartItems();
             <table id="cartcontents">
 			<!-- each individual yacht in the cart will be php-generated -->
 <?php
+  $subTotal = 0;
+  if (!isset($resultArray)) {exit("Your shopping cart is empty.");}
   foreach ($resultArray as $result => $array){
+    $subTotal += ($array['quantity'] * $array['price']);
     echo "\n<tr>\n".
     "<td><legend class=\"legend\">".$array['model_name']."</legend></td>\n".
     "</tr>\n".
@@ -103,25 +113,28 @@ $resultArray = getCartItems();
     "<li class=\"boatprice\">$".number_format($array['price'],2)."</li>\n".
     "<li>Sold by: </li>\n<li class=\"alignright\">$".number_format($array['price'],2)."\n".
     "</li>\n</ul>\n</td>\n</tr>\n";
-   }
+  }
 ?>
-			  <!--end of php generated cart items -->
-			  <tr>
-				<td>
-					<legend></legend>
-						<ul class="subtotal">
-							<li>Subtotal: $10010010</li>
-							<form>
-								<input type="button" class="btn" id="checkout" onClick="#" value="Checkout">
-							</form> 
-							</li>
-							<li>
-							<a href="#" id="deleteAll" class="updatedelete">Delete All</a>
-							</li>
-						</ul>
-				</td>
-			</tr>
-            </table>
+    			  <!--end of php generated cart items -->
+    			  <tr>
+      				<td>
+      					<legend class="legend"></legend>
+              </td>
+            </tr>
+            <tr>
+              <td>
+    						<ul class="subtotal">
+    							<li id="subtotal">Subtotal: $<?php echo number_format($subTotal, 2); ?></li><br>
+    							<form>
+    								<input type="button" class="btn" id="checkout" onClick="#" value="Checkout">
+    							</form> 
+    							<li>
+                    <?php echo "<a href=\"cart.php?deleteAll=true&custID=".$array['customer_id']."\" id=\"deleteAll\" class=\"updatedelete\">Delete All</a>"; ?>
+    							</li>
+    						</ul>
+    				  </td>
+            </tr>
+          </table>
         </form>
       </div>
     </section>

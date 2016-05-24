@@ -7,24 +7,23 @@ quantityChange = function() {
         newQuan = 9;
     }
     caller.value = newQuan;
-    strArray = caller.id.split("-");
-    custID = strArray[2];
-    modelNum = strArray[4];
-    // Update DB
-    alert("Update:\ncustID: "+custID+"\nmodelNum: "+modelNum+"\nnewQuan: "+newQuan);
-    // $.ajax({
-    //     type: 'POST',
-    //     url: '#',
-    //     data: {'change-cust':$_POST['Customers_customer_id'],'quantityChange':newQuan}
-    // });
-};
+}
+
 quantityUpdate = function() {
     var caller = event.target;
-    alert("Caller: "+caller.id+", Action: update");
+    strArray = caller.id.split("-");
+    custID = strArray[2];
+    modelNo = strArray[4];
+    strArrayVal = strArray;
+    strArrayVal[0] = 'qty';
+    newQuantity = document.getElementById(strArrayVal.join("-",strArrayVal)).value;
     // Update DB
-}
-quantityDelete = function() {
-    var caller = event.target;
-    alert("Caller: "+caller.id+", Action: delete");
-    // Update DB
+    $.post("scripts/cart/cartHelper.php",
+    {"changeQuantity":
+        {
+            "custID": custID,
+            "modelNo": modelNo,
+            "newQuantity": newQuantity
+        }
+    });
 }

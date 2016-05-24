@@ -4,9 +4,7 @@
 // Post: A connection to the DB was made
 // Returns: A handler for the DB link identifier
 // Cleanup: The calling function is responsible for calling dbClose($LinkID)
-function dbConnect() {
-    // Include file with database specific information or exit
-    (require '../OFdbInfo.inc') or exit("Unable to load server/database credentials.<br>\n");
+function dbConnect($host, $login, $pwd, $dbID) {
     // Connect to server and verify connection
     ($LinkID = mysqli_connect($host, $login, $pwd)) or exit("Unable to connect to db server.<br>\n".mysqli_error($LinkID));
     // Connect to database and verify connection
@@ -37,7 +35,7 @@ function getQuery($LinkID, $queryString) {
 // Param $LinkID is the handler to the database identifier
 // Param $insertString is the complete insert statement to be run against the DB
 function sendQuery($LinkID, $insertString) {
-    (mysqli_query($LinkID, $insertString)) or exit("insert error TODO-BETTER MESSAGE<br>\n". mysqli_error($LinkID));
+    (mysqli_query($LinkID, $insertString)) or exit("Error in sendQuery():<br>\n". mysqli_error($LinkID));
 }
 // Closes the DB connection created by dbConnect
 // Pre: dbConnect() was been called
