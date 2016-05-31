@@ -1,10 +1,10 @@
 <?php
     require_once('./config.php');
     // require('PHPMailer/PHPMailerAutoload.php');
-    echo "DEBUG:<br>\n"; print_r($_POST); echo "END<br>\n";
+    // echo "DEBUG:<br>\n"; print_r($_POST); echo "END<br>\n";
     $token  = $_POST['stripeToken'];
     $email = $_POST['stripeEmail'];
-    $amount = 50000;
+    $amount = $_POST['stripeAmount'];
     // $amount = $_POST['amount'];
     // $mail = new PHPMailer;
     /* Send Confirmation Email here.

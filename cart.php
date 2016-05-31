@@ -129,9 +129,10 @@ $resultArray = getCartItems($host, $login, $pwd, $dbID);
   									<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
   										data-key="<?php echo $stripe['publishable_key']; ?>"
   										data-description="Payment Checkout"
-  										data-amount="<?php $payTotal = $subTotal * 100; echo "$payTotal"; ?>"
+  										data-amount="<?php $payTotal = $subTotal * 1; echo "$payTotal"; ?>"
   										data-locale="auto">
   									</script>
+                    <input type="hidden" id="stripeAmount" name="stripeAmount" value="<?php echo "$payTotal" ?>">
     								<!-- <input type="button" class="btn" id="checkout" onClick="#" value="Checkout"> --> 
     							<li>
                     <?php echo "<a href=\"cart.php?deleteAll=true&custID=".$array['customer_id']."\" id=\"deleteAll\" class=\"updatedelete\">Delete All</a>"; ?>
