@@ -126,6 +126,12 @@ $resultArray = getCartItems($host, $login, $pwd, $dbID);
     						<ul class="subtotal">
     							<li id="subtotal">Subtotal: $<?php echo number_format($subTotal, 2); ?></li><br>
     							<form>
+									<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+										data-key="<?php echo $stripe['publishable_key']; ?>"
+										data-description="Payment Checkout"
+										data-amount="<?php echo number_format(($subTotal * 100), 2);; ?>"
+										data-locale="auto">
+									</script>
     								<input type="button" class="btn" id="checkout" onClick="#" value="Checkout">
     							</form> 
     							<li>
