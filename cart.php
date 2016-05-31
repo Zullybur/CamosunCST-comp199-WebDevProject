@@ -90,7 +90,7 @@ $resultArray = getCartItems($host, $login, $pwd, $dbID);
       <div class="col-md-8 col-md-offset-2" style="display:table;">
         <label><h3>Your Shopping Cart</h3></label>
         <!--Form needs a php file to link to here -->
-        <form name="cart" method="post" id="formbox">
+        <form action="charge.php" method="post">
             <table id="cartcontents">
 			<!-- each individual yacht in the cart will be php-generated -->
 <?php
@@ -126,15 +126,13 @@ $resultArray = getCartItems($host, $login, $pwd, $dbID);
               <td>
     						<ul class="subtotal">
     							<li id="subtotal">Subtotal: $<?php echo number_format($subTotal, 2); ?></li><br>
-    							<form action="charge.php" method="post">
-									<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-										data-key="<?php echo $stripe['publishable_key']; ?>"
-										data-description="Payment Checkout"
-										data-amount="<?php echo number_format(($subTotal * 100), 2);; ?>"
-										data-locale="auto">
-									</script>
-    								<input type="button" class="btn" id="checkout" onClick="#" value="Checkout">
-    							</form> 
+  									<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+  										data-key="<?php echo $stripe['publishable_key']; ?>"
+  										data-description="Payment Checkout"
+  										data-amount="<?php $payTotal = $subTotal * 100; echo "$payTotal"; ?>"
+  										data-locale="auto">
+  									</script>
+    								<!-- <input type="button" class="btn" id="checkout" onClick="#" value="Checkout"> --> 
     							<li>
                     <?php echo "<a href=\"cart.php?deleteAll=true&custID=".$array['customer_id']."\" id=\"deleteAll\" class=\"updatedelete\">Delete All</a>"; ?>
     							</li>
