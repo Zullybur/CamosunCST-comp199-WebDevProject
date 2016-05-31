@@ -5,6 +5,7 @@
 // Require files for cart operations
 (require 'scripts/cart/cartController.php') or exit("controller not found (1023)");
 (require 'scripts/cart/cartModel.php') or exit($error1052);
+require_once('./config.php');
 
 // Add new item to cart if sent in GET
 if (isset($_GET['addItem']) && $_GET['addItem'] == 'true'){
@@ -125,7 +126,7 @@ $resultArray = getCartItems($host, $login, $pwd, $dbID);
               <td>
     						<ul class="subtotal">
     							<li id="subtotal">Subtotal: $<?php echo number_format($subTotal, 2); ?></li><br>
-    							<form>
+    							<form action="charge.php" method="post">
 									<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 										data-key="<?php echo $stripe['publishable_key']; ?>"
 										data-description="Payment Checkout"
