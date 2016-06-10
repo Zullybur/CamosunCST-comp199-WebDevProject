@@ -44,6 +44,7 @@
   <section>
       <div class="container">
         <div class="row new-section">
+          <h1 class="catalog-title">Yacht Catalog</h1>
         <?php
           foreach ($modelArr as &$model) {
             $folderLoc = "images/thum/".$model["model_name"];

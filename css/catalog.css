@@ -5,8 +5,11 @@
 	margin: 0 auto;
 	background-color: #DDD;
 	top: 0;
+  margin-bottom: 100px;
 }
-
+.catalog-title{
+    text-align: center;
+}
 #filter {
 	width: 100%;
 	height: 275px;
