@@ -37,7 +37,7 @@ if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
   <body>
     <!-- Navbar -->
     <nav class="navbar navbar-fixed-top navbar-default">
-      <div class="container">                            
+      <div class="container">
         <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -253,7 +253,7 @@ if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
           This site is for academic purposes only
         </div>
       </div>
-      
+
     </footer>
   </body>
 </html>

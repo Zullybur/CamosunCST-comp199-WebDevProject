@@ -16,7 +16,7 @@
   <body>
     <!-- Navbar -->
     <nav class="navbar navbar-fixed-top navbar-default">
-      <div class="container">                            
+      <div class="container">
         <button class="navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -40,76 +40,13 @@
         </div>
       </div>
     </section>
-    <!-- Filter -->
-    <section>
-      <div class="container col-md-12" id="filter">
-        <div class="filter-title">
-          <h3>Yacht Search</h3>
-        </div>
-        <div class="filter-body styled-select">
-          <div class="row">
-            <div class="col-md-4 dropdown">
-              <label>Name:</label>
-              <select>
-                <option>Big mama</option>
-                <option>Biga mama 2</option>
-              </select>
-              <label>Currency:</label>
-              <select>
-                <option>Us</option>
-                <option>Euro</option>
-              </select>
-              <label>Built:</label> 
-              <select>
-                <option>2017</option>
-                <option>2016</option>
-              </select>
-            </div>
-            <div class="col-md-4 dropdown">
-              <label>Shipyard:</label>
-              <select>
-                <option>Greece</option>
-                <option>Italy</option>
-              </select>
-              <label>Guests:</label>
-              <select>
-                <option>20+</option>
-                <option>50+</option>
-              </select>
-              <label>New/Used:</label>
-              <select>
-                <option>New</option>
-                <option>Used</option>
-              </select>
-            </div>
-            <div class="col-md-4">
-              <div class="yacht-type" id="radio">
-                <label>Type:</label>
-                <label for="all" class="radio-mar">All</label>
-                <input type="radio" name="type" value="all" checked> 
-                <label class="radio-mar">Motor</label>
-                <input type="radio" name="type" value="motor"> 
-                <label class="radio-mar">Sailing</label>
-                <input type="radio" name="type" value="sailing"> 
-              </div>
-              <div class="slider"> 
-                <label>Price:</label>
-                <input type="range"  min="0" max="100" value="0"/>
-                <label>Length</label>
-                <input type="range"  min="0" max="100" value="0"/>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <!-- Catalog Items -->
   <section>
       <div class="container">
         <div class="row new-section">
         <?php
           foreach ($modelArr as &$model) {
-            $folderLoc = "images/thum/".$model["model_name"];  
+            $folderLoc = "images/thum/".$model["model_name"];
             echo"<div class='col-md-4 contain'>
               <div class='product-thumb1'>
                 <img src='$folderLoc/thum.jpg' width='325px' height='250px'>
