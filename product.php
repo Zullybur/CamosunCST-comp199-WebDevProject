@@ -4,9 +4,9 @@ $modelName = $_GET["model"];
 $modelArr = getModel($modelName);
 $string = str_replace(' ', '', $modelName);
 $folderLoc = "images/product_database_images/" . $string . "/";
-#custid=1& modelno=$array[1] &1 
+#custid=1& modelno=$array[1] &1
 $addCartGet = "cart.php?addItem=true&custID=1&modelNo=".strval($modelArr[0]);
-//echo $addCartGet; //?custid=1&modelno=Athena cart.php?custid=1&modelno=2 
+//echo $addCartGet; //?custid=1&modelno=Athena cart.php?custid=1&modelno=2
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +21,7 @@ $addCartGet = "cart.php?addItem=true&custID=1&modelNo=".strval($modelArr[0]);
  </head>
   <body>
     <nav class="navbar navbar-fixed-top navbar-default">
-      <div class="container">                            
+      <div class="container">
         <button class="navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -33,6 +33,10 @@ $addCartGet = "cart.php?addItem=true&custID=1&modelNo=".strval($modelArr[0]);
             <li><a href="catalog.html" class="scroll">Catalog</a></li>
             <li><a href="#" class="scroll">Contact</a></li>
           </ul>
+          <a href="#" class="shopping_cart glyphicon glyphicon-log-in" title="Log in">
+          </a>
+          <a href="cart.php" class="shopping_cart glyphicon glyphicon-shopping-cart" title="Shopping Cart">
+          </a>
         </div>
       </div>
     </nav>

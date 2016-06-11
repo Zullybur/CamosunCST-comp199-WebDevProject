@@ -28,6 +28,10 @@
             <li class="active"><a href="catalog.php" class="scroll">Catalog</a></li>
             <li><a href="contact.php" class="scroll">Contact</a></li>
           </ul>
+          <a href="#" class="shopping_cart glyphicon glyphicon-log-in" title="Log in">
+          </a>
+          <a href="cart.php" class="shopping_cart glyphicon glyphicon-shopping-cart" title="Shopping Cart">
+          </a>
         </div>
       </div>
     </nav>

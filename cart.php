@@ -16,7 +16,7 @@ if (isset($_GET['addItem']) && $_GET['addItem'] == 'true'){
   deleteAll($_GET["custID"], $host, $login, $pwd, $dbID);
 }
 $resultArray = getCartItems($host, $login, $pwd, $dbID);
-//?custid=1&modelno=Athena 
+//?custid=1&modelno=Athena
 //addToCart();
 ?>
 <html>
@@ -51,6 +51,10 @@ $resultArray = getCartItems($host, $login, $pwd, $dbID);
             <li><a href="catalog.php" class="scroll">Catalog</a></li>
             <li class="active"><a href="#" class="scroll">Contact</a></li>
           </ul>
+          <a href="#" class="shopping_cart glyphicon glyphicon-log-in" title="Log in">
+          </a>
+          <a href="cart.php" class="shopping_cart glyphicon glyphicon-shopping-cart" title="Shopping Cart">
+          </a>
         </div>
       </div>
     </nav>
@@ -133,7 +137,7 @@ $resultArray = getCartItems($host, $login, $pwd, $dbID);
   										data-locale="auto">
   									</script>
                     <input type="hidden" id="stripeAmount" name="stripeAmount" value="<?php echo "$payTotal" ?>">
-    								<!-- <input type="button" class="btn" id="checkout" onClick="#" value="Checkout"> --> 
+    								<!-- <input type="button" class="btn" id="checkout" onClick="#" value="Checkout"> -->
     							<li>
                     <?php echo "<a href=\"cart.php?deleteAll=true&custID=".$array['customer_id']."\" id=\"deleteAll\" class=\"updatedelete\">Delete All</a>"; ?>
     							</li>

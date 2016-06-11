@@ -85,3 +85,14 @@ ul{
 .copy_bottom {
   padding-bottom: 1em;
 }
+
+.shopping_cart{
+  float: right;
+  font-size: 1.8em;
+  padding-top: 13px;
+  padding-right: 15px;
+  color: #333;
+}
+.shopping_cart:hover{
+  text-decoration: none;
+}
