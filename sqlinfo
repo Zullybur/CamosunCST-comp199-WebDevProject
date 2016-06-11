@@ -1,0 +1,36 @@
+<?php
+$host = "localhost";
+$login = "170user";
+$pwd = "phphasclass";
+$dbID = "comp170";
+
+$Q1_SQL = "SELECT last_name, job_title, department_id, department_name\n".
+"FROM employees\n".
+"INNER JOIN departments USING (department_id)\n".
+"INNER JOIN jobs USING (job_id)\n".
+"INNER JOIN locations USING (location_id)\n".
+"WHERE UPPER(city)='SOUTHLAKE'\n";
+
+$Q2_SQL = "SELECT last_name, department_name\n".
+"FROM employees\n".
+"LEFT OUTER JOIN departments USING (department_id)\n".
+"WHERE UPPER(last_name) LIKE 'G%'\n";
+
+$Q3_SQL = "SELECT e.last_name AS \"Employee\", e.employee_id AS \"Emp#\",\n".
+"\tm.last_name AS \"Manager\", e.manager_id AS \"Mgr#\"\n".
+"FROM employees e INNER JOIN employees m\n".
+"ON e.manager_id = m.employee_id\n".
+"WHERE UPPER(e.last_name) LIKE 'T%'\n";
+
+$Q1_ORACLE = "SELECT last_name, job_title, e.department_id, department_name\n".
+"FROM employees e, departments d, jobs j, locations l\n".
+"WHERE e.department_id = d.department_id\n".
+"AND j.job_id = e.job_id\n".
+"AND l.location_id = d.location_id\n".
+"AND UPPER(city)='SOUTHLAKE'\n";
+
+$Q3_ORACLE = "SELECT e.last_name AS \"Employee\", e.employee_id AS \"Emp#\",\n".
+"   m.last_name AS \"Manager\", e.manager_id AS \"Mgr#\"\n".
+"FROM employees e, employees m\n".
+"WHERE e.manager_id = m.employee_id\n".
+"AND UPPER(e.last_name) LIKE 'T%'\n";
