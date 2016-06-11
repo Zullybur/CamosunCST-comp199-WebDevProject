@@ -49,7 +49,7 @@ $resultArray = getCartItems($host, $login, $pwd, $dbID);
           <ul class="nav navbar-nav navbar-left navigation">
             <li><a href="index.html" class="scroll">Home</a></li>
             <li><a href="catalog.php" class="scroll">Catalog</a></li>
-            <li><a href="#" class="scroll">Contact</a></li>
+            <li><a href="contact.php" class="scroll">Contact</a></li>
           </ul>
           <a href="#" class="shopping_cart glyphicon glyphicon-log-in" title="Log in">
           </a>
