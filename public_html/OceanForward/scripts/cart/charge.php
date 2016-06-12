@@ -8,16 +8,9 @@ if(!isset($rootPath)) {
 
 (require $rootPath . 'public_html/OceanForward/scripts/PHPMailer/PHPMailerAutoload.php');
 
-    // echo "DEBUG:<br>\n"; print_r($_POST); echo "END<br>\n";
     $token  = $_POST['stripeToken'];
     $email = $_POST['stripeEmail'];
     $amount = $_POST['stripeAmount'];
-    // $amount = $_POST['amount'];
-    // $mail = new PHPMailer;
-    /* Send Confirmation Email here.
-    See https://github.com/PHPMailer/PHPMailer/blob/master/ examples/gmail.phps
-    as example using Gmail as Mail Server with PHPMailer
-    */
 
     $mail = new PHPMailer;
     $mail-> isSMTP();
@@ -38,10 +31,7 @@ if(!isset($rootPath)) {
 
     if(!$mail->send()) {
         echo "Mailer Error: ".$mail->ErrorInfo;
-    } else {
-        echo "Message sent!";
     }
-
     $customer = \Stripe\Customer::create(array(
     'email' => $email,
     'source' => $token
