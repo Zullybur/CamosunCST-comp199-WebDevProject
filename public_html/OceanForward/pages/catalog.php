@@ -7,8 +7,6 @@ if(!isset($rootPath)) {
 (require $rootPath . 'public_html/OceanForward/scripts/controllers/catalogController.php') or 
   exit("Unable to include 'catalogController.php' from public_html/OceanForward/scripts/controllers/");
 
-echo "catalog inclusions complete: $host\n";
-
 $modelArr = getModelsArray();
 ?>
 <!DOCTYPE html>

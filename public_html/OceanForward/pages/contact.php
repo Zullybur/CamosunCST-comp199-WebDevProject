@@ -1,8 +1,13 @@
 <?php
+// If this file is not called by another file, set rootPath locally to root
+if(!isset($rootPath)) {
+    $rootPath = "../../../";
+}
+
 if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
   $validEmail = True;
   //DEBUG: TODO: Comment out
-  print_r($_POST);
+  // print_r($_POST);
   // Set email variables
   $to = "oceanforwardyachts@gmail.com";
   $subject = "Automated Web-Form Email";
@@ -13,10 +18,10 @@ if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
              "Preferred Contact Method: ".$_POST['contact_method']."\r\n".
              "Message Content:\r\n".$_POST['message'];
   //DEBUG: TODO: Comment out
-  print_r($message);
+  // print_r($message);
   $success = mail($to, $subject, $message);
   //DEBUG: TODO: Comment out
-  print_r($success);
+  // print_r($success);
 } else {
   $validEmail = False;
 }

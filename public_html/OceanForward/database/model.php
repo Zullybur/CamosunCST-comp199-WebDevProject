@@ -6,8 +6,6 @@ if(!isset($rootPath)) {
 (require $rootPath . 'OFdbInfo.inc') or 
   		exit("Unable to include 'OFdbInfo.inc' from root");
 
-echo "model includions complete. $host\n";
-
 // This function must be called before sending any queries to the DB
 // Pre: N/A
 // Post: A connection to the DB was made
