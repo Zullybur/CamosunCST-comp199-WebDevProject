@@ -1,6 +1,15 @@
 <?php
-  include "database/models/searchData.php";
-  $modelArr = searchModel();
+// If this file is not called by another file, set rootPath locally to root
+if(!isset($rootPath)) {
+    $rootPath = "../../../";
+}
+
+(require $rootPath . 'public_html/OceanForward/scripts/controllers/catalogController.php') or 
+  exit("Unable to include 'catalogController.php' from public_html/OceanForward/scripts/controllers/");
+
+echo "catalog inclusions complete: $host\n";
+
+$modelArr = getModelsArray();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,9 +18,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Catalog</title>
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/default.css" rel="stylesheet">
-    <link href="css/catalog.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/default.css" rel="stylesheet">
+    <link href="../css/catalog.css" rel="stylesheet">
   </head>
   <body>
     <!-- Navbar -->
@@ -24,12 +33,12 @@
         </button>
         <div class="collapse navbar-collapse navHeaderCollapse">
           <ul class="nav navbar-nav navbar-left navigation">
-            <li><a href="index.html" class="scroll">Home</a></li>
-            <li class="active"><a href="catalog.php" class="scroll">Catalog</a></li>
+            <li><a href="../index.html" class="scroll">Home</a></li>
+            <li class="active"><a href="#" class="scroll">Catalog</a></li>
             <li><a href="contact.php" class="scroll">Contact</a></li>
           </ul>
-          <a href="#" class="shopping_cart glyphicon glyphicon-log-in" title="Log in">
-          </a>
+          <!-- <a href="#" class="shopping_cart glyphicon glyphicon-log-in" title="Log in">
+          </a> -->
           <a href="cart.php" class="shopping_cart glyphicon glyphicon-shopping-cart" title="Shopping Cart">
           </a>
         </div>
@@ -50,8 +59,9 @@
         <div class="row new-section">
           <h1 class="catalog-title">Yacht Catalog</h1>
         <?php
-          foreach ($modelArr as &$model) {
-            $folderLoc = "images/thum/".$model["model_name"];
+          foreach ($modelArr as $model) {
+            //$folderLoc = $rootPath . "OceanForward/images/yachts/".$model["model_name"];
+            $folderLoc = '../../OceanForward/images/yachts/'.$model['model_name'];
             echo"<div class='col-md-4 contain'>
               <div class='product-thumb1'>
                 <img src='$folderLoc/thum.jpg' width='325px' height='250px'>
@@ -75,9 +85,9 @@
         <div class="col-md-3 col-md-offset-2">
           <ul>
             <li class="footer-title">Site Map</li>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="../index.html">Home</a></li>
             <li><a href="#">Catalog</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.php">Contact</a></li>
           </ul>
         </div>
         <div class="col-md-2">
@@ -109,6 +119,6 @@
       </div>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
