@@ -32,12 +32,12 @@ if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contact</title>
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/default.css" rel="stylesheet">
-    <link href="css/contact.css" rel="stylesheet">
-    <link href="css/form.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/default.css" rel="stylesheet">
+    <link href="../css/contact.css" rel="stylesheet">
+    <link href="../css/form.css" rel="stylesheet">
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script>
   </head>
   <body>
     <!-- Navbar -->
@@ -50,12 +50,12 @@ if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
         </button>
         <div class="collapse navbar-collapse navHeaderCollapse">
           <ul class="nav navbar-nav navbar-left navigation">
-            <li><a href="index.html" class="scroll">Home</a></li>
+            <li><a href="../index.html" class="scroll">Home</a></li>
             <li><a href="catalog.php" class="scroll">Catalog</a></li>
-            <li class="active"><a href="contact.php" class="scroll">Contact</a></li>
+            <li class="active"><a href="#" class="scroll">Contact</a></li>
           </ul>
-          <a href="#" class="shopping_cart glyphicon glyphicon-log-in" title="Log in">
-          </a>
+          <!-- <a href="#" class="shopping_cart glyphicon glyphicon-log-in" title="Log in">
+          </a> -->
           <a href="cart.php" class="shopping_cart glyphicon glyphicon-shopping-cart" title="Shopping Cart">
           </a>
         </div>
@@ -230,8 +230,8 @@ if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
         <div class="col-md-3 col-md-offset-2">
           <ul>
             <li class="footer-title">Site Map</li>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="catalog.html">Catalog</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="catalog.php">Catalog</a></li>
             <li><a href="#">Contact</a></li>
           </ul>
         </div>
