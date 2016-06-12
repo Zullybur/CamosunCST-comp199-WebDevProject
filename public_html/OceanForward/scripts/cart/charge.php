@@ -23,11 +23,11 @@ if(!isset($rootPath)) {
     $mail->SMTPAuth = true;
     $mail->Username = "oceanforwardyachts@gmail.com";
     $mail->Password = "oceanforward1";
-    $mail->setFrom('oceanforwardyachts@gmail.com', 'Info');
-    $mail->addReplyTo('oceanforwardyachts@gmail.com', 'Info');
+    $mail->setFrom('oceanforwardyachts@gmail.com', 'Orders');
+    $mail->addReplyTo('oceanforwardyachts@gmail.com', 'Orders');
     $mail->addAddress($email, 'John Doe');
     $mail->Subject = 'Ocean Forward Order Confirmation';
-    $mail->Body = 'Body of message';
+    $mail->Body = 'Thank you for your payment of '.$amount.'. Your yacht is being processed and will ship within 2-3 business days.';
 
     if(!$mail->send()) {
         echo "Mailer Error: ".$mail->ErrorInfo;
