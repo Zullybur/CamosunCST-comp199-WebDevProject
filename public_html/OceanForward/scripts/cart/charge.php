@@ -1,6 +1,12 @@
 <?php
-    require_once('./config.php');
-    require('PHPMailer/PHPMailerAutoload.php');
+// If this file is not called by another file, set rootPath locally to root
+if(!isset($rootPath)) {
+    $rootPath = "../../../../";
+}
+(require $rootPath . 'OFstripeConfig.inc') or 
+  exit("Unable to include 'OFstripeConfig.inc' from root");
+
+(require $rootPath . 'PHPMailer/PHPMailerAutoload.php');
     // require('PHPMailer/PHPMailerAutoload.php');
     // echo "DEBUG:<br>\n"; print_r($_POST); echo "END<br>\n";
     $token  = $_POST['stripeToken'];
