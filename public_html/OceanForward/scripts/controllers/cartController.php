@@ -1,14 +1,14 @@
 <?php
-// Error codes for tracking
-$error1052 = "<html><body>An error has occured: 1052<br>\n".
-"We're sorry, if this problem persists, please <a href=\"contact.php\">contact us</a><br>\n".
-"<a href=\"index.html\">back to home</a></body></html>";
-$error1057 = "<html><body>An error has occured: 1057<br>\n".
-"We're sorry, if this problem persists, please <a href=\"contact.php\">contact us</a><br>\n".
-"<a href=\"index.html\">back to home</a></body></html>";
-
-function deleteItem($custID, $modelNo, $host, $login, $pwd, $dbID) {
-    $LinkID = dbConnect($host, $login, $pwd, $dbID);
+// If this file is not called by another file, set rootPath locally to root
+if(!isset($rootPath)) {
+    $rootPath = "../../../../";
+}
+// Require database model for queries
+(require $rootPath . 'public_html/OceanForward/database/model.php') or 
+  exit("Unable to include 'model.php' from public_html/OceanForward/database/");
+  
+function deleteItem($custID, $modelNo) {
+    $LinkID = dbConnect();
     
     $insert = "DELETE FROM ShoppingCart WHERE Customers_customer_id = $custID AND Model_model_no = $modelNo";
     sendQuery($LinkID, $insert);
@@ -16,8 +16,8 @@ function deleteItem($custID, $modelNo, $host, $login, $pwd, $dbID) {
     dbClose($LinkID);
 }
 
-function deleteAll($custID, $host, $login, $pwd, $dbID) {
-    $LinkID = dbConnect($host, $login, $pwd, $dbID);
+function deleteAll($custID) {
+    $LinkID = dbConnect();
     
     $insert = "DELETE FROM ShoppingCart WHERE Customers_customer_id = $custID";
     sendQuery($LinkID, $insert);
@@ -25,8 +25,8 @@ function deleteAll($custID, $host, $login, $pwd, $dbID) {
     dbClose($LinkID);
 }
 
-function changeQuantity($custID, $modelNo, $updatedQuantity, $host, $login, $pwd, $dbID) {
-    $LinkID = dbConnect($host, $login, $pwd, $dbID);
+function changeQuantity($custID, $modelNo, $updatedQuantity) {
+    $LinkID = dbConnect();
 
     $change = "UPDATE ShoppingCart SET quantity = $updatedQuantity WHERE Customers_customer_id = $custID AND Model_model_no = $modelNo";
     sendQuery($LinkID, $change);
@@ -34,8 +34,8 @@ function changeQuantity($custID, $modelNo, $updatedQuantity, $host, $login, $pwd
     dbClose($LinkID);
 }
 
-function insertItem($custID, $modelNo, $host, $login, $pwd, $dbID) {
-    $LinkID = dbConnect($host, $login, $pwd, $dbID);
+function insertItem($custID, $modelNo) {
+    $LinkID = dbConnect();
     //do a query to check if the KVP(custid+modelno) already exists
     //result array 0 should be ok
     $checkQuantity = 'SELECT COUNT(*) FROM ShoppingCart WHERE Customers_customer_id='.strval($custID).' AND Model_model_no='.strval($modelNo);
@@ -51,9 +51,9 @@ function insertItem($custID, $modelNo, $host, $login, $pwd, $dbID) {
     dbClose($LinkID);
 }
 
-function getCartItems($host, $login, $pwd, $dbID, $customerID = '1') {
+function getCartItems($customerID = '1') {
     // Get data from Model
-    $LinkID = dbConnect($host, $login, $pwd, $dbID);
+    $LinkID = dbConnect();
 
     $queryString = 'SELECT c.customer_id, m.brand, c.first_name, '.
     'c.last_name, m.model_no, m.model_name, m.price, s.quantity '.
