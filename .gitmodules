@@ -1,4 +1,4 @@
 #PHPMailer
 [submodule "PHPMailer"]
-	path = PHPMailer.public_html/OceanForward/scripts/PHPMailer
+	path = public_html/OceanForward/scripts/PHPMailer
 	url = https://github.com/PHPMailer/PHPMailer.git
