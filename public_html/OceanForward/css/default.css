@@ -46,10 +46,13 @@ ul{
   text-align: center;
   padding-bottom: 50px;
 }
+.wrapper {
+  min-height: 100%;
+  margin: 0 auto -150px; /* the bottom margin is the negative value of the footer's height */
+}
 .footer {
   color: #777;
   position: relative;
-  height: 150px;
   height: 150px;
   clear: both;
   padding-top: 24px;
