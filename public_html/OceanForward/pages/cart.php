@@ -33,9 +33,9 @@ $resultArray = getCartItems();
     <link href="../css/default.css" rel="stylesheet">
     <link href="../css/form.css" rel="stylesheet">
     <link href="../css/cart.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
     <script src="../bootstrap/js/bootstrap.js" type="text/javascript"></script>
     <script src="../scripts/cart/cartJQuery.js" type="text/javascript"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -75,19 +75,19 @@ $resultArray = getCartItems();
         <div class="col-md-6 col-md-offset-3">
         <legend>DEBUG: GET DATA</legend>
         <?php
-        echo "\n<pre>\n<code>\n"; print_r($_GET); echo "\n</pre>\n</code>\n";
+        #echo "\n<pre>\n<code>\n"; print_r($_GET); echo "\n</pre>\n</code>\n";
         ?>
         </div>
         <div class="col-md-6 col-md-offset-3">
         <legend>DEBUG: POST DATA</legend>
         <?php
-        echo "\n<pre>\n<code>\n"; print_r($_POST); echo "\n</pre>\n</code>\n";
+        #echo "\n<pre>\n<code>\n"; print_r($_POST); echo "\n</pre>\n</code>\n";
         ?>
         </div>
         <div class="col-md-6 col-md-offset-3">
         <legend>DEBUG: ARRAY DATA</legend>
         <?php
-        echo "\n<pre>\n<code>\n"; print_r($resultArray); echo "\n</pre>\n</code>\n";
+        #echo "\n<pre>\n<code>\n"; print_r($resultArray); echo "\n</pre>\n</code>\n";
         ?>
         </div>
       </section> -->
@@ -96,7 +96,7 @@ $resultArray = getCartItems();
         <div class="col-md-8 col-md-offset-2" style="display:table;">
           <label><h3>Your Shopping Cart</h3></label>
           <!--Form needs a php file to link to here -->
-          <form action="../scripts/charge.php" method="post">
+          <form action="../scripts/cart/charge.php" method="post">
               <table id="cartcontents">
   			<!-- each individual yacht in the cart will be php-generated -->
   <?php
@@ -123,7 +123,7 @@ $resultArray = getCartItems();
         "<a href=\"cart.php?delItem=true&custID=".$array['customer_id']."&modelNo=".$array['model_no']."\" id=\"del-cust-".$array['customer_id']."-mod-".$array['model_no']."\" \n".
         " name=\"delete\" class=\"updatedelete\">Delete</a></li>\n".
         "<li class=\"boatprice\">$".number_format($array['price'],2)."</li>\n".
-        "<li>Sold by: </li>\n<li class=\"alignright\">$".number_format($array['price'],2)."\n".
+        "<li class=\"alignright\">$".number_format(($array['price'] * $array['quantity']),2)."\n".
         "</li>\n</ul>\n</td>\n</tr>\n";
       }
     }

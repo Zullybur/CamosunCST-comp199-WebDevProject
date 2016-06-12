@@ -6,8 +6,8 @@ if(!isset($rootPath)) {
 (require $rootPath . 'OFstripeConfig.inc') or 
   exit("Unable to include 'OFstripeConfig.inc' from root");
 
-(require $rootPath . 'PHPMailer/PHPMailerAutoload.php');
-    // require('PHPMailer/PHPMailerAutoload.php');
+(require $rootPath . 'public_html/OceanForward/scripts/PHPMailer/PHPMailerAutoload.php');
+
     // echo "DEBUG:<br>\n"; print_r($_POST); echo "END<br>\n";
     $token  = $_POST['stripeToken'];
     $email = $_POST['stripeEmail'];
@@ -28,15 +28,15 @@ if(!isset($rootPath)) {
     $mail->Port = 587;
     $mail->SMTPSecure = 'tls';
     $mail->SMTPAuth = true;
-    $mail->Username = "oceanforwardyachts@gmail.com"
-    $mail->Password = "oceanforward1"
+    $mail->Username = "oceanforwardyachts@gmail.com";
+    $mail->Password = "oceanforward1";
     $mail->setForm('oceanforwardyachts@gmail.com', 'Info');
     $mail->addRepltTo('oceanforwardyachts@gmail.com', 'Info');
     $mail->addAddress($email, 'John Doe');
     $mail->Subject = 'PHPMailer GMail SMTP test';
     $mail->Body = 'Body of message';
 
-    if(!mail->send()) {
+    if(!$mail->send()) {
         echo "Mailer Error: ".$mail->ErrorInfo;
     } else {
         echo "Message sent!";

@@ -18,7 +18,7 @@ quantityUpdate = function() {
     strArrayVal[0] = 'qty';
     newQuantity = document.getElementById(strArrayVal.join("-",strArrayVal)).value;
     // Update DB
-    $.post("scripts/cart/cartHelper.php",
+    $.post("../scripts/cart/cartHelper.php",
     {"changeQuantity":
         {
             "custID": custID,
