@@ -3,7 +3,7 @@
 if(!isset($rootPath)) {
     $rootPath = "../../../../";
 }
-(require $rootPath . 'OFstripeConfig.inc') or 
+(require $rootPath . 'OFstripeConfig.inc') or
   exit("Unable to include 'OFstripeConfig.inc' from root");
 
 (require $rootPath . 'public_html/OceanForward/scripts/PHPMailer/PHPMailerAutoload.php');
@@ -30,10 +30,10 @@ if(!isset($rootPath)) {
     $mail->SMTPAuth = true;
     $mail->Username = "oceanforwardyachts@gmail.com";
     $mail->Password = "oceanforward1";
-    $mail->setForm('oceanforwardyachts@gmail.com', 'Info');
-    $mail->addRepltTo('oceanforwardyachts@gmail.com', 'Info');
+    $mail->setFrom('oceanforwardyachts@gmail.com', 'Info');
+    $mail->addReplyTo('oceanforwardyachts@gmail.com', 'Info');
     $mail->addAddress($email, 'John Doe');
-    $mail->Subject = 'PHPMailer GMail SMTP test';
+    $mail->Subject = 'Ocean Forward Order Confirmation';
     $mail->Body = 'Body of message';
 
     if(!$mail->send()) {
