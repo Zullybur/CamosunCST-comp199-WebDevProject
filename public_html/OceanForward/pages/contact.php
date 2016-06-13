@@ -66,7 +66,7 @@ if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
       <div class="container header-image col-md-12">
         <div class="page-title">
           <h1>Contact</h1>
-          <img src="images/logo.png">
+          <img src="../images/logo-white.png">
         </div>
       </div>
     </section>

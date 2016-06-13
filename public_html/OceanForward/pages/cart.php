@@ -1,4 +1,17 @@
 <?php
+// start session
+session_start();
+// Capture previous session ID if available, otherwise save current session ID as cookie
+if(isset($_COOKIE['PHPSESSID'])) {
+  session_id($_COOKIE['PHPSESSID']);
+}
+// re-set cookie to maintain session ID
+setcookie('PHPSESSID', session_id(), time() + 60*60*24*30);
+
+// 0.1s SLEEP REQUIRED FOR CART TO UPDATE
+// PROPERLY WHEN CHANGING QUANTITY
+time_nanosleep(0, 100000000);
+
 // If this file is not called by another file, set rootPath locally to root
 if(!isset($rootPath)) {
     $rootPath = "../../../";
@@ -10,18 +23,17 @@ if(!isset($rootPath)) {
 (require $rootPath . 'OFstripeConfig.inc') or 
   exit("Unable to include 'OFstripeConfig.inc' from root");
 
-// Add new item to cart if sent in GET
+// Add or delete items if data sent in GET
 if (isset($_GET['addItem']) && $_GET['addItem'] == 'true'){
-  insertItem($_GET["custID"], $_GET["modelNo"], $host, $login, $pwd, $dbID);
+  insertItem(session_id(), $_GET["modelNo"]);
 } else if (isset($_GET['delItem']) && $_GET['delItem'] == 'true') {
-  deleteItem($_GET["custID"], $_GET["modelNo"], $host, $login, $pwd, $dbID);
+  deleteItem(session_id(), $_GET["modelNo"]);
 } else if (isset($_GET['deleteAll']) && $_GET['deleteAll'] == 'true') {
-  deleteAll($_GET["custID"], $host, $login, $pwd, $dbID);
+  deleteAll(session_id());
 }
 
-$resultArray = getCartItems();
-//?custid=1&modelno=Athena
-//addToCart();
+$resultArray = getCartItems(session_id());
+// echo "DEBUG: <pre><code><br>\n"; print_r($resultArray); echo "END DEBUG</pre></code><br>\n";
 ?>
 <html>
   <head>
@@ -64,9 +76,9 @@ $resultArray = getCartItems();
       <section>
         <div class="col-md-12">
           <div class="page-title">
-            <img src="../images/black-logo.png">
+            <img src="../images/logo-black.png">
             <h1>Shopping Cart</h1>
-            <img src="../images/black-logo.png">
+            <img src="../images/logo-black.png">
           </div>
         </div>
       </section>
@@ -115,12 +127,12 @@ $resultArray = getCartItems();
         "<tr>\n<td>\n<ul>\n".
         // quantity
         "<li>Quantity: <input type=\"text\" name=\"quantity\" onchange=\"quantityChange();\" \n".
-        "class=\"qtytxt\" id=\"qty-cust-".$array['customer_id']."-mod-".$array['model_no']."\" value=\"".$array['quantity']."\"> \n".
+        "class=\"qtytxt\" id=\"qty-".session_id()."-mod-".$array['model_no']."\" value=\"".$array['quantity']."\"> \n".
         // update
-        "<a href=\"?\" id=\"upd-cust-".$array['customer_id']."-mod-".$array['model_no']."\" \n".
+        "<a href=\"?\" id=\"upd-".session_id()."-mod-".$array['model_no']."\" ".
         "name=\"update\" onclick=\"quantityUpdate();\" class=\"updatedelete\">Update</a> | ".
         // delete
-        "<a href=\"cart.php?delItem=true&custID=".$array['customer_id']."&modelNo=".$array['model_no']."\" id=\"del-cust-".$array['customer_id']."-mod-".$array['model_no']."\" \n".
+        "<a href=\"cart.php?delItem=true&modelNo=".$array['model_no']."\" id=\"del-mod-".$array['model_no']."\" \n".
         " name=\"delete\" class=\"updatedelete\">Delete</a></li>\n".
         "<li class=\"boatprice\">$".number_format($array['price'],2)."</li>\n".
         "<li class=\"alignright\">$".number_format(($array['price'] * $array['quantity']),2)."\n".
@@ -134,6 +146,7 @@ $resultArray = getCartItems();
         					<legend class="legend"></legend>
                 </td>
               </tr>
+              <?php if ($showCart): ?>
               <tr>
                 <td>
       						<ul class="subtotal">
@@ -146,11 +159,12 @@ $resultArray = getCartItems();
     									</script>
                       <input type="hidden" id="stripeAmount" name="stripeAmount" value="<?php echo "$payTotal" ?>">
       							<li>
-                      <?php if ($showCart) {echo "<a href=\"cart.php?deleteAll=true&custID=".$array['customer_id']."\" id=\"deleteAll\" class=\"updatedelete\">Delete All</a>";} ?>
+                      <a href="cart.php?deleteAll=true" id="deleteAll" class="updatedelete">Delete All</a>
       							</li>
       						</ul>
       				  </td>
               </tr>
+              <?php endif ?>
             </table>
           </form>
         </div>

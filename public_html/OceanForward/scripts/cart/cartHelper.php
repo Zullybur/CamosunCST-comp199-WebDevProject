@@ -8,6 +8,8 @@ if(!isset($rootPath)) {
     exit("Unable to include 'cartController.php' from public_html/OceanForward/scripts/controllers/");
 
 if (isset($_POST['changeQuantity'])) {
-    changeQuantity($_POST['changeQuantity']['custID'], $_POST['changeQuantity']['modelNo'], $_POST['changeQuantity']['newQuantity']);
+    changeQuantity($_POST['changeQuantity']['sessid'], $_POST['changeQuantity']['modelNo'], $_POST['changeQuantity']['newQuantity']);
 }
+
+return true;
 ?>

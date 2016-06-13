@@ -1,11 +1,28 @@
 <?php
-include "database/models/model.php";
+// start session
+session_start();
+// Capture previous session ID if available, otherwise save current session ID as cookie
+if(isset($_COOKIE['PHPSESSID'])) {
+  session_id($_COOKIE['PHPSESSID']);
+}
+// re-set cookie to maintain session ID
+setcookie('PHPSESSID', session_id(), time() + 60*60*24*30);
+
+// If this file is not called by another file, set rootPath locally to root
+if(!isset($rootPath)) {
+    $rootPath = "../../../";
+}
+
+(require $rootPath . 'public_html/OceanForward/scripts/controllers/productController.php') or 
+  exit("Unable to include 'productController.php' from public_html/OceanForward/scripts/controllers/");
+
 $modelName = $_GET["model"];
-$modelArr = getModel($modelName);
+$modelArr = getModel($modelName)[0];
+// echo "DEBUG:<code><pre><br>\n"; print_r($modelArr); echo "END DEBUG</pre></code>";
 $string = str_replace(' ', '', $modelName);
-$folderLoc = "images/product_database_images/" . $string . "/";
+$folderLoc = "../images/product_database_images/" . $string . "/";
 #custid=1& modelno=$array[1] &1
-$addCartGet = "cart.php?addItem=true&custID=1&modelNo=".strval($modelArr[0]);
+$addCartGet = "cart.php?addItem=true&modelNo=".strval($modelArr['model_no']);
 //echo $addCartGet; //?custid=1&modelno=Athena cart.php?custid=1&modelno=2
 ?>
 <!DOCTYPE html>
@@ -15,9 +32,9 @@ $addCartGet = "cart.php?addItem=true&custID=1&modelNo=".strval($modelArr[0]);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Product</title>
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/default.css" rel="stylesheet">
-	  <link href="css/product.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/default.css" rel="stylesheet">
+	  <link href="../css/product.css" rel="stylesheet">
  </head>
   <body>
     <nav class="navbar navbar-fixed-top navbar-default">
@@ -29,12 +46,13 @@ $addCartGet = "cart.php?addItem=true&custID=1&modelNo=".strval($modelArr[0]);
         </button>
         <div class="collapse navbar-collapse navHeaderCollapse">
           <ul class="nav navbar-nav navbar-left navigation">
-            <li><a href="index.html" class="scroll">Home</a></li>
-            <li><a href="catalog.html" class="scroll">Catalog</a></li>
-            <li><a href="#" class="scroll">Contact</a></li>
+            <li><a href="../index.html" class="scroll">Home</a></li>
+            <li><a href="catalog.php" class="scroll">Catalog</a></li>
+            <li><a href="contact.php" class="scroll">Contact</a></li>
+            <li class="active"><a href="#" class="scroll"><?php echo $modelArr['model_name']; ?></a></li>
           </ul>
-          <a href="#" class="shopping_cart glyphicon glyphicon-log-in" title="Log in">
-          </a>
+          <!-- <a href="#" class="shopping_cart glyphicon glyphicon-log-in" title="Log in">
+          </a> -->
           <a href="cart.php" class="shopping_cart glyphicon glyphicon-shopping-cart" title="Shopping Cart">
           </a>
         </div>
@@ -43,8 +61,8 @@ $addCartGet = "cart.php?addItem=true&custID=1&modelNo=".strval($modelArr[0]);
     <section>
       <div class="container products col-md-12">
         <div class="page-title">
-          <h1><?php print_r($modelArr[1]); ?></h1>
-          <img src="images/logo.png">
+          <h1><?php echo $modelArr['model_name']; ?></h1>
+          <img src="../images/logo-white.png">
         </div>
       </div>
     </section>
@@ -52,47 +70,47 @@ $addCartGet = "cart.php?addItem=true&custID=1&modelNo=".strval($modelArr[0]);
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h2 class="prodName"><?php print_r($modelArr[1]); ?></h2>
+            <h2 class="prodName"><?php print_r($modelArr['model_name']); ?></h2>
             <p class="abouttext">
-              <?php print_r($modelArr[12]); ?>
+              <?php print_r($modelArr['description']); ?>
             </p>
           </div>
           <div class="col-md-4">
             <h2 class="subtitle">Asking Price</h2>
 			<!-- TESTING HERE -->
-            <p><?php print_r("$".number_format($modelArr[4],2)); ?></p>
+            <p><?php print_r("$".number_format($modelArr['price'],2)); ?></p>
           </div>
           <div class="col-md-4">
             <h2 class="subtitle">Length</h2>
-            <p><?php print_r($modelArr[2]." ft"); ?></p>
+            <p><?php print_r($modelArr['length']." ft"); ?></p>
           </div>
         	<div class="col-md-4">
             <h2 class="subtitle">Brand</h2>
-            <p><?php print_r($modelArr[3]); ?></p>
+            <p><?php print_r($modelArr['brand']); ?></p>
           </div>
         	<div class="col-md-4">
             <h2 class="subtitle">Year Built</h2>
-            <p><?php print_r($modelArr[7]); ?></p>
+            <p><?php print_r($modelArr['year_built']); ?></p>
           </div>
         	<div class="col-md-4">
             <h2 class="subtitle">Beds &amp; Baths</h2>
-            <p><?php print_r("Beds: ".$modelArr[5].", Baths: ".$modelArr[6]); ?></p>
+            <p><?php print_r("Beds: ".$modelArr['beds'].", Baths: ".$modelArr['baths']); ?></p>
           </div>
         	<div class="col-md-4">
             <h2 class="subtitle">Displacement</h2>
-            <p><?php print_r(number_format($modelArr[7])." tonnes"); ?></p>
+            <p><?php print_r(number_format($modelArr['year_built'])." tonnes"); ?></p>
           </div>
 			<div class="col-md-4">
             <h2 class="subtitle">Draft</h2>
-            <p><?php print_r($modelArr[8]." ft"); ?></p>
+            <p><?php print_r($modelArr['draft']." ft"); ?></p>
           </div>
 			<div class="col-md-4">
             <h2 class="subtitle">Class</h2>
-            <p><?php print_r($modelArr[9]); ?></p>
+            <p><?php print_r($modelArr['class']); ?></p>
           </div>
 		  	<div class="col-md-4">
             <h2 class="subtitle">Cruising Speed</h2>
-            <p><?php print_r($modelArr[11]." knots"); ?></p>
+            <p><?php print_r($modelArr['cruising_speed']." knots"); ?></p>
           </div>
             <div class="col-lg-1 col-lg-offset-10">
               <input type="button" class="btn" onClick="parent.location='<?php print_r($addCartGet); ?>'" value="Add to Cart">
@@ -142,15 +160,15 @@ $addCartGet = "cart.php?addItem=true&custID=1&modelNo=".strval($modelArr[0]);
       </div>
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
     <footer class="footer OF-footer">
       <div class="row">
         <div class="col-md-3 col-md-offset-2">
           <ul>
             <li class="footer-title">Site Map</li>
-            <li><a href="#">Home</a></li>
-            <li><a href="catalog.html">Catalog</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="catalog.php">Catalog</a></li>
+            <li><a href="contact.php">Contact</a></li>
           </ul>
         </div>
         <div class="col-md-2">

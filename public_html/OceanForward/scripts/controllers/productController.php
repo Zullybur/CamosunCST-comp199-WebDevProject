@@ -7,18 +7,20 @@ if(!isset($rootPath)) {
 (require $rootPath . 'public_html/OceanForward/database/model.php') or 
   exit("Unable to include 'model.php' from public_html/OceanForward/database/");
 
-function getModelsArray() {
+// Return an array of a specified model in the database
+function getModel($model_name){
     $LinkID = dbConnect();
 
     $select = '*';
     $from = 'Model';
+    $where = $model_name;
 
-    $query = "SELECT ".$select." FROM ".$from.";";
+    $query = "SELECT ".$select." FROM ".$from." WHERE model_name ='".$where."';";
 
-	$resultsArray = getQuery($LinkID, $query); 
+    $result = getQuery($LinkID, $query);
 
     dbClose($LinkID);
 
-	return $resultsArray;
+    return $result;
 }
 ?>
