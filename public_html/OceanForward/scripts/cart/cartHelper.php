@@ -10,4 +10,6 @@ if(!isset($rootPath)) {
 if (isset($_POST['changeQuantity'])) {
     changeQuantity($_POST['changeQuantity']['custID'], $_POST['changeQuantity']['modelNo'], $_POST['changeQuantity']['newQuantity']);
 }
+
+return true;
 ?>

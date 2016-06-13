@@ -25,5 +25,9 @@ quantityUpdate = function() {
             "modelNo": modelNo,
             "newQuantity": newQuantity
         }
+    })
+    .done(function(data) {
+        // alert("test success: "+data);
     });
+    // setTimeout(location.reload, 2000);
 }

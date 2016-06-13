@@ -1,4 +1,8 @@
 <?php
+// 0.1s SLEEP REQUIRED FOR CART TO UPDATE
+// PROPERLY WHEN CHANGING QUANTITY
+time_nanosleep(0, 100000000);
+
 // If this file is not called by another file, set rootPath locally to root
 if(!isset($rootPath)) {
     $rootPath = "../../../";
@@ -20,8 +24,7 @@ if (isset($_GET['addItem']) && $_GET['addItem'] == 'true'){
 }
 
 $resultArray = getCartItems();
-//?custid=1&modelno=Athena
-//addToCart();
+// echo "DEBUG: <pre><code><br>\n"; print_r($resultArray); echo "END DEBUG</pre></code><br>\n";
 ?>
 <html>
   <head>
