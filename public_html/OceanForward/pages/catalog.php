@@ -56,7 +56,7 @@ $modelArr = getModelsArray();
       <div class="container products col-md-12">
         <div class="page-title">
           <h1>Yachts</h1>
-          <img src="images/logo.png">
+          <img src="../images/logo-white.png">
         </div>
       </div>
     </section>

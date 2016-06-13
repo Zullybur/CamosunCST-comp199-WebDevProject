@@ -62,7 +62,7 @@ $addCartGet = "cart.php?addItem=true&modelNo=".strval($modelArr['model_no']);
       <div class="container products col-md-12">
         <div class="page-title">
           <h1><?php echo $modelArr['model_name']; ?></h1>
-          <img src="images/logo.png">
+          <img src="../images/logo-white.png">
         </div>
       </div>
     </section>

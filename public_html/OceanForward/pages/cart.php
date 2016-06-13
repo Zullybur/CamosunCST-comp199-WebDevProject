@@ -76,9 +76,9 @@ $resultArray = getCartItems(session_id());
       <section>
         <div class="col-md-12">
           <div class="page-title">
-            <img src="../images/black-logo.png">
+            <img src="../images/logo-black.png">
             <h1>Shopping Cart</h1>
-            <img src="../images/black-logo.png">
+            <img src="../images/logo-black.png">
           </div>
         </div>
       </section>
