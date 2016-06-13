@@ -75,8 +75,8 @@ $modelArr = getModelsArray();
               </div>
               <div class='content-thumb'>";
                 print_r('<h4>'.$model["model_name"].'</h4>');
-                print_r('<h5>Price:'.$model["price"].'</h5>');
-                print_r('<h6>Length:'.$model["length"].'</h6>');
+                print_r('<h5>Price: $'.number_format($model["price"],2).'</h5>');  
+                print_r('<h6>Length: '.$model["length"].' ft</h6>');
                 $encodedModelName = urlencode($model["model_name"]);
                 $clickHandler = "parent.location='product.php?model=$encodedModelName'";
                 echo "<input type='button' class='btn' onClick=$clickHandler value='More'>";
