@@ -134,6 +134,7 @@ $resultArray = getCartItems();
         					<legend class="legend"></legend>
                 </td>
               </tr>
+              <?php if ($showCart): ?>
               <tr>
                 <td>
       						<ul class="subtotal">
@@ -146,11 +147,12 @@ $resultArray = getCartItems();
     									</script>
                       <input type="hidden" id="stripeAmount" name="stripeAmount" value="<?php echo "$payTotal" ?>">
       							<li>
-                      <?php if ($showCart) {echo "<a href=\"cart.php?deleteAll=true&custID=".$array['customer_id']."\" id=\"deleteAll\" class=\"updatedelete\">Delete All</a>";} ?>
+                      <a href="cart.php?deleteAll=true&amp;custID=<?php echo $array['customer_id'] ?>" id="deleteAll" class="updatedelete">Delete All</a>
       							</li>
       						</ul>
       				  </td>
               </tr>
+              <?php endif ?>
             </table>
           </form>
         </div>
