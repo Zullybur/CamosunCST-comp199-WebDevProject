@@ -1,4 +1,13 @@
 <?php
+// start session
+session_start();
+// Capture previous session ID if available, otherwise save current session ID as cookie
+if(isset($_COOKIE['PHPSESSID'])) {
+  session_id($_COOKIE['PHPSESSID']);
+}
+// re-set cookie to maintain session ID
+setcookie('PHPSESSID', session_id(), time() + 60*60*24*30);
+
 // If this file is not called by another file, set rootPath locally to root
 if(!isset($rootPath)) {
     $rootPath = "../../../";
@@ -13,7 +22,7 @@ $modelArr = getModel($modelName)[0];
 $string = str_replace(' ', '', $modelName);
 $folderLoc = "../images/product_database_images/" . $string . "/";
 #custid=1& modelno=$array[1] &1
-$addCartGet = "cart.php?addItem=true&custID=1&modelNo=".strval($modelArr['model_no']);
+$addCartGet = "cart.php?addItem=true&modelNo=".strval($modelArr['model_no']);
 //echo $addCartGet; //?custid=1&modelno=Athena cart.php?custid=1&modelno=2
 ?>
 <!DOCTYPE html>

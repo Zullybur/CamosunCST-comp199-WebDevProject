@@ -28,8 +28,9 @@ function dbConnect() {
 // Returns: The created array from the query result
 function getQuery($LinkID, $queryString) {
     // Query database and return result
-	//echo $queryString;
+	// echo $queryString;
     $result = mysqli_query($LinkID, $queryString);
+    // echo "Result: $result";
     $i = 0;
     $resultArray = NULL;
     while($x = mysqli_fetch_assoc($result)) {

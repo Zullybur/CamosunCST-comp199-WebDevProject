@@ -9,19 +9,23 @@ quantityChange = function() {
     caller.value = newQuan;
 }
 
-quantityUpdate = function() {
+quantityUpdate = function(sessid) {
+    alert("here-0");
     var caller = event.target;
     strArray = caller.id.split("-");
-    custID = strArray[2];
-    modelNo = strArray[4];
+    call = strArray[0];     //upd
+    sessid = strArray[1]    //sessID
+    mod = strArray[2];      //mod
+    modelNo = strArray[3];  //model #
     strArrayVal = strArray;
     strArrayVal[0] = 'qty';
+    alert("here-1");
     newQuantity = document.getElementById(strArrayVal.join("-",strArrayVal)).value;
     // Update DB
     $.post("../scripts/cart/cartHelper.php",
     {"changeQuantity":
         {
-            "custID": custID,
+            "sessid": sessid,
             "modelNo": modelNo,
             "newQuantity": newQuantity
         }

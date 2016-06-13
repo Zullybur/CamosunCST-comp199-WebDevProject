@@ -1,4 +1,13 @@
 <?php
+// start session
+session_start();
+// Capture previous session ID if available, otherwise save current session ID as cookie
+if(isset($_COOKIE['PHPSESSID'])) {
+  session_id($_COOKIE['PHPSESSID']);
+}
+// re-set cookie to maintain session ID
+setcookie('PHPSESSID', session_id(), time() + 60*60*24*30);
+
 // If this file is not called by another file, set rootPath locally to root
 if(!isset($rootPath)) {
     $rootPath = "../../../";
