@@ -216,7 +216,7 @@ if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
           <legend></legend>
           <div class="row form_bottom">
             <div class="col-md-3 col-md-offset-2">
-              <input type="button" class="button" value="Clear" />
+              <input type="reset" class="button" value="Clear" />
             </div>
             <div class="col-md-3 col-md-offset-2">
               <input type="submit" class="button submit" value="Submit" />
