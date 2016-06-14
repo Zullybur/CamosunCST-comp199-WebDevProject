@@ -8,6 +8,23 @@ h3 {
 	text-align: center;
     display: inline-block;
 }
+#.boatimg{
+	width: 200px;
+}
+
+#boatinfo {
+	width: 500px;
+}
+
+.circular{
+  width: 150px;
+	height: 150px;
+}
+
+#eachboat {
+	height: 75x;
+	width: 75px;
+}
 
 .page-title{
   margin-top: 12%;
@@ -79,9 +96,6 @@ h3 {
 	text-align: right;
 }
 
-td {
-	width: 100%;
-}
 
 #checkout {
 	background-color: #4CAF50; /* Green */

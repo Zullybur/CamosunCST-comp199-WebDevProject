@@ -124,7 +124,7 @@ $resultArray = getCartItems(session_id());
         echo "\n<tr>\n".
         "<td><legend class=\"legend\">".$array['model_name']."</legend></td>\n".
         "</tr>\n".
-        "<tr>\n<td>\n<ul>\n".
+        "<tr>\n<td id=\"boatimg\">\n<img id=\"eachboat\" src=\"../images/yachts/".$array['model_name']."/thum.jpg\"></td><td id=\"boatinfo\"><ul>\n".
         // quantity
         "<li>Quantity: <input type=\"text\" name=\"quantity\" onchange=\"quantityChange();\" \n".
         "class=\"qtytxt\" id=\"qty-".session_id()."-mod-".$array['model_no']."\" value=\"".$array['quantity']."\"> \n".
@@ -134,7 +134,7 @@ $resultArray = getCartItems(session_id());
         // delete
         "<a href=\"cart.php?delItem=true&modelNo=".$array['model_no']."\" id=\"del-mod-".$array['model_no']."\" \n".
         " name=\"delete\" class=\"updatedelete\">Delete</a></li>\n".
-        "<li class=\"boatprice\">$".number_format($array['price'],2)."</li>\n".
+        "</td><li class=\"boatprice\">$".number_format($array['price'],2)."</li>\n".
         "<li class=\"alignright\">$".number_format(($array['price'] * $array['quantity']),2)."\n".
         "</li>\n</ul>\n</td>\n</tr>\n";
       }

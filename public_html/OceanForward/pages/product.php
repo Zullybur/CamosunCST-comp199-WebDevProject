@@ -59,7 +59,7 @@ $addCartGet = "cart.php?addItem=true&modelNo=".strval($modelArr['model_no']);
       </div>
     </nav>
     <section>
-      <div class="container products col-md-12">
+      <div class="container products col-md-12" style="background:url(<?php print_r($folderLoc."1.jpg") ?>)no-repeat scroll 0px / cover rgba(104, 100, 147, 0.8);">
         <div class="page-title">
           <h1><?php echo $modelArr['model_name']; ?></h1>
           <img src="../images/logo-white.png">
