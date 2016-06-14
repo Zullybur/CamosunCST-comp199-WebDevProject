@@ -10,7 +10,6 @@ quantityChange = function() {
 }
 
 quantityUpdate = function(sessid) {
-    alert("here-0");
     var caller = event.target;
     strArray = caller.id.split("-");
     call = strArray[0];     //upd
@@ -19,7 +18,6 @@ quantityUpdate = function(sessid) {
     modelNo = strArray[3];  //model #
     strArrayVal = strArray;
     strArrayVal[0] = 'qty';
-    alert("here-1");
     newQuantity = document.getElementById(strArrayVal.join("-",strArrayVal)).value;
     // Update DB
     $.post("../scripts/cart/cartHelper.php",
