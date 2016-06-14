@@ -77,7 +77,6 @@ $addCartGet = "cart.php?addItem=true&modelNo=".strval($modelArr['model_no']);
           </div>
           <div class="col-md-4">
             <h2 class="subtitle">Asking Price</h2>
-			<!-- TESTING HERE -->
             <p><?php print_r("$".number_format($modelArr['price'],2)); ?></p>
           </div>
           <div class="col-md-4">

@@ -21,9 +21,10 @@ h3 {
 	height: 150px;
 }
 
-#eachboat {
+.eachboat {
 	height: 75x;
 	width: 75px;
+	float:right;
 }
 
 .page-title{
