@@ -73,15 +73,15 @@ $resultArray = getCartItems(session_id());
         </div>
       </nav>
       <!-- Page Header -->
-      <section>
-        <div class="col-md-12">
+    <section>
+      <div class="container header-image col-md-12">
           <div class="page-title">
             <img src="../images/logo-black.png">
             <h1>Shopping Cart</h1>
             <img src="../images/logo-black.png">
           </div>
-        </div>
-      </section>
+      </div>
+    </section>
       <!-- debug content -->
       <!-- <section>
         <div class="col-md-6 col-md-offset-3">
@@ -124,7 +124,7 @@ $resultArray = getCartItems(session_id());
         echo "\n<tr>\n".
         "<td><legend class=\"legend\">".$array['model_name']."</legend></td>\n".
         "</tr>\n".
-        "<tr>\n<td>\n<ul>\n".
+        "<tr>\n<td><div id=\"boat\"><img class=\"eachboat\"src=\"../images/product_database_images/".str_replace(' ', '', $array['model_name'])."/1.jpg\" alt=\"Boat\"></div>\n<ul>\n".
         // quantity
         "<li>Quantity: <input type=\"text\" name=\"quantity\" onchange=\"quantityChange();\" \n".
         "class=\"qtytxt\" id=\"qty-".session_id()."-mod-".$array['model_no']."\" value=\"".$array['quantity']."\"> \n".

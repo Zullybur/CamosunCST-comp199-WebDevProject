@@ -44,3 +44,8 @@
   text-align: center;
   padding-bottom: 50px;
 }
+
+#blacklogo {
+	margin: 0 auto;
+	display: block;
+}

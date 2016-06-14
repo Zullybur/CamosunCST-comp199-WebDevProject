@@ -18,6 +18,16 @@ ul{
   overflow:auto;
   padding-bottom:100px;     /* this needs to be bigger than footer height
 }*/
+
+.row{
+	width:99%;
+}
+
+.container-fluid {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
 .header-image {
   width: 100%;
   height: 975px;
